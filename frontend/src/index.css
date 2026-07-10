@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/*
+ * Hype design tokens — single source of truth: ugc_design.pen ($hype-* variables).
+ * Color/spacing/radius values are never hardcoded in components; consume them from here.
+ */
+@theme {
+  /* Colors */
+  --color-hype-bg: #0a0a12;
+  --color-hype-surface: #12121c;
+  --color-hype-surface-2: #1a1a28;
+  --color-hype-border: #2a2a3e;
+  --color-hype-border-strong: #3d3d58;
+  --color-hype-text: #f5f5fa;
+  --color-hype-text-2: #a3a3bd;
+  --color-hype-text-3: #70708c;
+  --color-hype-purple: #a855f7;
+  --color-hype-pink: #ec4899;
+  --color-hype-cyan: #06b6d4;
+  --color-hype-danger: #f87171;
+  --color-hype-purple-soft: #a855f726;
+  --color-hype-danger-soft: #f8717120;
+
+  /* Typography */
+  --font-display: "Geist", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Radius */
+  --radius-hype-sm: 10px;
+  --radius-hype-md: 16px;
+  --radius-hype-lg: 24px;
+}
+
+@layer base {
+  body {
+    @apply bg-hype-bg font-body text-hype-text antialiased;
+  }
+}
+
+@layer components {
+  /* Horizontal page gutter (design: 120px @1440) */
+  .page-gutter {
+    @apply px-5 md:px-12 lg:px-[120px];
+  }
+
+  /* Per-page background radial glows (frame fills in the design) */
+  .glow-explore {
+    background-image: radial-gradient(
+      160% 45% at 50% 10%,
+      color-mix(in srgb, var(--color-hype-purple) 18%, transparent),
+      transparent 100%
+    );
+  }
+  .glow-detail {
+    background-image: radial-gradient(
+      130% 90% at 50% 55%,
+      color-mix(in srgb, var(--color-hype-purple) 16%, transparent),
+      transparent 100%
+    );
+  }
+  .glow-create {
+    background-image: radial-gradient(
+      110% 80% at 50% 35%,
+      color-mix(in srgb, var(--color-hype-purple) 13%, transparent),
+      transparent 100%
+    );
+  }
+  .glow-404 {
+    background-image: radial-gradient(
+      120% 90% at 50% 50%,
+      color-mix(in srgb, var(--color-hype-pink) 13%, transparent),
+      transparent 100%
+    );
+  }
+
+  /* Glow streak lines: slow 8-12s opacity pulse (0.25 ↔ 0.45) */
+  .streak {
+    animation: streak-pulse 10s ease-in-out infinite;
+  }
+
+  /* The 'Copy link' button pulses its glow twice right after creation */
+  .animate-copy-pulse {
+    animation: copy-pulse 1.2s ease-in-out 2;
+  }
+}
+
+@keyframes streak-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes copy-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 32px 6px
+      color-mix(in srgb, var(--color-hype-purple) 45%, transparent);
+    border-color: var(--color-hype-purple);
+  }
+}

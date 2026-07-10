@@ -1,0 +1,4421 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "sIewX",
+      "x": 0,
+      "y": -860,
+      "name": "Hype Components",
+      "gap": 60,
+      "children": [
+        {
+          "type": "frame",
+          "id": "hzm9X",
+          "name": "Hype/ButtonPrimary",
+          "reusable": true,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "$hype-purple",
+                "position": 0
+              },
+              {
+                "color": "$hype-pink",
+                "position": 1
+              }
+            ]
+          },
+          "cornerRadius": "$hype-radius-sm",
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#A855F759",
+            "offset": {
+              "x": 0,
+              "y": 4
+            },
+            "blur": 24
+          },
+          "gap": 8,
+          "padding": [
+            14,
+            28
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "K9y1Ue",
+              "name": "Label",
+              "fill": "#FFFFFF",
+              "content": "Create Timer",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 15,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AmS5D",
+          "name": "Hype/ButtonGhost",
+          "reusable": true,
+          "fill": "$hype-surface",
+          "cornerRadius": "$hype-radius-sm",
+          "stroke": "$hype-border-strong",
+          "strokeWidth": 1,
+          "gap": 8,
+          "padding": [
+            14,
+            28
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "V4hJR1",
+              "name": "Label",
+              "fill": "$hype-text",
+              "content": "Back to Explore",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 15,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PySLx",
+          "name": "Hype/Chip",
+          "reusable": true,
+          "fill": "$hype-surface",
+          "cornerRadius": "$hype-radius-full",
+          "stroke": "$hype-border",
+          "strokeWidth": 1,
+          "gap": 8,
+          "padding": [
+            10,
+            18
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "a0yZb",
+              "name": "Label",
+              "fill": "$hype-text-2",
+              "content": "All",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jm22K",
+          "name": "Hype/CountUnit",
+          "reusable": true,
+          "layout": "vertical",
+          "gap": 10,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "grIUb",
+              "name": "Value",
+              "fill": "$hype-text",
+              "content": "134",
+              "fontFamily": "$hype-font-mono",
+              "fontSize": 112,
+              "fontWeight": "700",
+              "letterSpacing": -2
+            },
+            {
+              "type": "text",
+              "id": "HYEhi",
+              "name": "Unit",
+              "fill": "$hype-text-3",
+              "content": "DAYS",
+              "fontFamily": "$hype-font-mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 4
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "vpLi9",
+          "name": "Hype/TimerCard",
+          "reusable": true,
+          "width": 405,
+          "fill": "$hype-surface",
+          "cornerRadius": "$hype-radius-md",
+          "stroke": "$hype-border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "BYgvK",
+              "name": "CardTop",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Tt4LT",
+                  "name": "Emoji",
+                  "fill": "$hype-text",
+                  "content": "🎮",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 34,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "xA12R",
+                  "name": "Tag",
+                  "fill": "$hype-surface-2",
+                  "cornerRadius": "$hype-radius-full",
+                  "stroke": "$hype-border",
+                  "strokeWidth": 1,
+                  "padding": [
+                    5,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "RFuDw",
+                      "name": "TagLabel",
+                      "fill": "$hype-text-2",
+                      "content": "GAMES",
+                      "fontFamily": "$hype-font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "rclUn",
+              "name": "Title",
+              "fill": "$hype-text",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "GTA 6 Release",
+              "fontFamily": "$hype-font-display",
+              "fontSize": 20,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "AO6HL",
+              "name": "Remaining",
+              "fill": "$hype-text",
+              "content": "134d 16:22:41",
+              "fontFamily": "$hype-font-mono",
+              "fontSize": 26,
+              "fontWeight": "600",
+              "letterSpacing": -0.5
+            },
+            {
+              "type": "text",
+              "id": "K3QIAs",
+              "name": "TargetDate",
+              "fill": "$hype-text-3",
+              "content": "Nov 19, 2026",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Lcrnu",
+          "name": "Hype/TopNav",
+          "reusable": true,
+          "width": 1440,
+          "height": 76,
+          "fill": "#0A0A12CC",
+          "stroke": "$hype-border",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            120
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "LPNeD",
+              "name": "Logo",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "M3mgH",
+                  "name": "LogoEmoji",
+                  "fill": "$hype-text",
+                  "content": "⏳",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "UvMLE",
+                  "name": "LogoText",
+                  "fill": "$hype-text",
+                  "content": "Hype",
+                  "fontFamily": "$hype-font-display",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HB1VG",
+              "name": "NavRight",
+              "gap": 28,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "d233f",
+                  "name": "NavExplore",
+                  "fill": "$hype-text-2",
+                  "content": "Explore",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 15,
+                  "fontWeight": "500"
+                },
+                {
+                  "id": "YEN1e",
+                  "type": "ref",
+                  "ref": "hzm9X",
+                  "name": "NavCTA"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "UzP1e",
+      "x": 0,
+      "y": -96,
+      "name": "Hype — Explore",
+      "clip": true,
+      "width": 1440,
+      "fill": [
+        "$hype-bg",
+        {
+          "type": "gradient",
+          "gradientType": "radial",
+          "enabled": true,
+          "rotation": 0,
+          "size": {
+            "width": 1.6,
+            "height": 0.45
+          },
+          "colors": [
+            {
+              "color": "#A855F72E",
+              "position": 0
+            },
+            {
+              "color": "#A855F700",
+              "position": 1
+            }
+          ],
+          "center": {
+            "y": 0.1
+          }
+        }
+      ],
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "fxRa5",
+          "layoutPosition": "absolute",
+          "x": -140,
+          "y": 240,
+          "name": "Streak 1",
+          "opacity": 0.4,
+          "rotation": -8,
+          "fill": "$hype-purple",
+          "width": 1000,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "JX1ab",
+          "layoutPosition": "absolute",
+          "x": 520,
+          "y": 560,
+          "name": "Streak 2",
+          "opacity": 0.4,
+          "rotation": 6.000000000000001,
+          "fill": "$hype-cyan",
+          "width": 760,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "h20wWk",
+          "layoutPosition": "absolute",
+          "x": -140,
+          "y": 1180,
+          "name": "Streak 3",
+          "opacity": 0.4,
+          "rotation": -10,
+          "fill": "$hype-pink",
+          "width": 860,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "K6cG9u",
+          "layoutPosition": "absolute",
+          "x": 520,
+          "y": 1780,
+          "name": "Streak 4",
+          "opacity": 0.4,
+          "rotation": 7,
+          "fill": "$hype-purple",
+          "width": 700,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "id": "Qdf41",
+          "type": "ref",
+          "ref": "Lcrnu",
+          "name": "TopNav",
+          "width": "fill_container"
+        },
+        {
+          "type": "frame",
+          "id": "LWxJH",
+          "name": "Hero",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            72,
+            120,
+            64,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "G46SR",
+              "name": "FeaturedBadge",
+              "fill": "$hype-purple-soft",
+              "cornerRadius": "$hype-radius-full",
+              "stroke": "$hype-purple",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                7,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "V5z4CD",
+                  "name": "BadgeLabel",
+                  "fill": "$hype-purple",
+                  "content": "⚡ FEATURED COUNTDOWN",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "VnX9q",
+              "name": "HeroTitle",
+              "fill": "$hype-text",
+              "content": "🏆 FIFA World Cup 2026 Final",
+              "fontFamily": "$hype-font-display",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "jTQjk",
+              "name": "HeroCountdown",
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "A5KP5W",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit DAYS",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "12",
+                      "fontSize": 96
+                    },
+                    "HYEhi": {
+                      "content": "DAYS"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "LgDfG",
+                  "name": "Sep1",
+                  "fill": "$hype-text-3",
+                  "content": ":",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 64,
+                  "fontWeight": "300"
+                },
+                {
+                  "id": "KZZeG",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit HOURS",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "14",
+                      "fontSize": 96
+                    },
+                    "HYEhi": {
+                      "content": "HOURS"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "fjkHJ",
+                  "name": "Sep2",
+                  "fill": "$hype-text-3",
+                  "content": ":",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 64,
+                  "fontWeight": "300"
+                },
+                {
+                  "id": "l3qNL",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit MINUTES",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "32",
+                      "fontSize": 96
+                    },
+                    "HYEhi": {
+                      "content": "MINUTES"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "qpGWU",
+                  "name": "Sep3",
+                  "fill": "$hype-text-3",
+                  "content": ":",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 64,
+                  "fontWeight": "300"
+                },
+                {
+                  "id": "DhJR9",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit SECONDS",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "08",
+                      "fontSize": 96
+                    },
+                    "HYEhi": {
+                      "content": "SECONDS"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "F25qL",
+              "name": "HeroDate",
+              "fill": "$hype-text-3",
+              "content": "July 19, 2026 · 3:00 PM (your local time) · Sports",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "Ji9NF",
+              "name": "HeroActions",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "XzxPh",
+                  "type": "ref",
+                  "ref": "AmS5D",
+                  "name": "OpenTimer",
+                  "descendants": {
+                    "V4hJR1": {
+                      "content": "Open fullscreen →"
+                    }
+                  }
+                },
+                {
+                  "id": "eFTYL",
+                  "type": "ref",
+                  "ref": "hzm9X",
+                  "name": "CreateCTA",
+                  "descendants": {
+                    "K9y1Ue": {
+                      "content": "Create Timer"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rSYPq",
+          "name": "PopularSection",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            16,
+            120,
+            48,
+            120
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "a9im32",
+              "name": "SectionHead",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "D63lVP",
+                  "name": "SectionTitle",
+                  "fill": "$hype-text",
+                  "content": "Popular countdowns",
+                  "fontFamily": "$hype-font-display",
+                  "fontSize": 26,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "VdNfG",
+                  "name": "SectionCount",
+                  "fill": "$hype-text-3",
+                  "content": "9 ACTIVE TIMERS",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PAmtZ",
+              "name": "CategoryChips",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "APTS0",
+                  "type": "ref",
+                  "ref": "PySLx",
+                  "name": "Chip All",
+                  "fill": "$hype-purple-soft",
+                  "stroke": "$hype-purple",
+                  "descendants": {
+                    "a0yZb": {
+                      "content": "All",
+                      "fill": "$hype-text",
+                      "fontWeight": "600"
+                    }
+                  }
+                },
+                {
+                  "id": "Z7HtY",
+                  "type": "ref",
+                  "ref": "PySLx",
+                  "name": "Chip Games",
+                  "descendants": {
+                    "a0yZb": {
+                      "content": "Games 🎮"
+                    }
+                  }
+                },
+                {
+                  "id": "kfeE9",
+                  "type": "ref",
+                  "ref": "PySLx",
+                  "name": "Chip Sports",
+                  "descendants": {
+                    "a0yZb": {
+                      "content": "Sports ⚽"
+                    }
+                  }
+                },
+                {
+                  "id": "BRjTK",
+                  "type": "ref",
+                  "ref": "PySLx",
+                  "name": "Chip Movies & TV",
+                  "descendants": {
+                    "a0yZb": {
+                      "content": "Movies & TV 🎬"
+                    }
+                  }
+                },
+                {
+                  "id": "uwDTA",
+                  "type": "ref",
+                  "ref": "PySLx",
+                  "name": "Chip Tech",
+                  "descendants": {
+                    "a0yZb": {
+                      "content": "Tech 📱"
+                    }
+                  }
+                },
+                {
+                  "id": "MXCFB",
+                  "type": "ref",
+                  "ref": "PySLx",
+                  "name": "Chip Holidays",
+                  "descendants": {
+                    "a0yZb": {
+                      "content": "Holidays 🎉"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "D0idS0",
+              "name": "TimerGrid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "pQjUQ",
+                  "name": "GridRow 1",
+                  "width": "fill_container",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "id": "soZgJ",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card GTA 6 Release",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "🎮"
+                        },
+                        "RFuDw": {
+                          "content": "GAMES"
+                        },
+                        "rclUn": {
+                          "content": "GTA 6 Release"
+                        },
+                        "AO6HL": {
+                          "content": "134d 16:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Nov 19, 2026"
+                        }
+                      }
+                    },
+                    {
+                      "id": "Jbo93",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card Spider-Man: Brand New Day",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "🕷️"
+                        },
+                        "RFuDw": {
+                          "content": "MOVIES & TV"
+                        },
+                        "rclUn": {
+                          "content": "Spider-Man: Brand New Day"
+                        },
+                        "AO6HL": {
+                          "content": "23d 16:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Jul 31, 2026"
+                        }
+                      }
+                    },
+                    {
+                      "id": "WBzVr",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card iPhone 18 Event (expected)",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "📱"
+                        },
+                        "RFuDw": {
+                          "content": "TECH"
+                        },
+                        "rclUn": {
+                          "content": "iPhone 18 Event (expected)"
+                        },
+                        "AO6HL": {
+                          "content": "63d 09:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Sep 8, 2026"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "V0HdD",
+                  "name": "GridRow 2",
+                  "width": "fill_container",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "id": "u8ruL",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card Halloween",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "🎃"
+                        },
+                        "RFuDw": {
+                          "content": "HOLIDAYS"
+                        },
+                        "rclUn": {
+                          "content": "Halloween"
+                        },
+                        "AO6HL": {
+                          "content": "115d 16:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Oct 31, 2026"
+                        }
+                      }
+                    },
+                    {
+                      "id": "GKWtf",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card Black Friday",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "🛍️"
+                        },
+                        "RFuDw": {
+                          "content": "HOLIDAYS"
+                        },
+                        "rclUn": {
+                          "content": "Black Friday"
+                        },
+                        "AO6HL": {
+                          "content": "142d 16:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Nov 27, 2026"
+                        }
+                      }
+                    },
+                    {
+                      "id": "MgROP",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card Avengers: Doomsday",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "🦸"
+                        },
+                        "RFuDw": {
+                          "content": "MOVIES & TV"
+                        },
+                        "rclUn": {
+                          "content": "Avengers: Doomsday"
+                        },
+                        "AO6HL": {
+                          "content": "163d 16:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Dec 18, 2026"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yzNd2",
+                  "name": "GridRow 3",
+                  "width": "fill_container",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "id": "zbOEb",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card Christmas",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "🎄"
+                        },
+                        "RFuDw": {
+                          "content": "HOLIDAYS"
+                        },
+                        "rclUn": {
+                          "content": "Christmas"
+                        },
+                        "AO6HL": {
+                          "content": "170d 16:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Dec 25, 2026"
+                        }
+                      }
+                    },
+                    {
+                      "id": "d8zoTO",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card New Year 2027",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "🎆"
+                        },
+                        "RFuDw": {
+                          "content": "HOLIDAYS"
+                        },
+                        "rclUn": {
+                          "content": "New Year 2027"
+                        },
+                        "AO6HL": {
+                          "content": "177d 13:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Jan 1, 2027"
+                        }
+                      }
+                    },
+                    {
+                      "id": "sTz7D",
+                      "type": "ref",
+                      "ref": "vpLi9",
+                      "name": "Card UEFA Champions League Final 2027",
+                      "width": "fill_container",
+                      "descendants": {
+                        "Tt4LT": {
+                          "content": "⚽"
+                        },
+                        "RFuDw": {
+                          "content": "SPORTS"
+                        },
+                        "rclUn": {
+                          "content": "UEFA Champions League Final 2027"
+                        },
+                        "AO6HL": {
+                          "content": "332d 11:22:41"
+                        },
+                        "K3QIAs": {
+                          "content": "Jun 5, 2027"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "keFNn",
+          "name": "CreateBanner",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            0,
+            120,
+            72,
+            120
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "H5ptd8",
+              "name": "BannerCard",
+              "width": "fill_container",
+              "fill": [
+                "$hype-surface",
+                {
+                  "type": "gradient",
+                  "gradientType": "radial",
+                  "enabled": true,
+                  "rotation": 0,
+                  "size": {
+                    "width": 1.2,
+                    "height": 1.6
+                  },
+                  "colors": [
+                    {
+                      "color": "#A855F72B",
+                      "position": 0
+                    },
+                    {
+                      "color": "#EC489912",
+                      "position": 1
+                    }
+                  ],
+                  "center": {
+                    "y": 0
+                  }
+                }
+              ],
+              "cornerRadius": "$hype-radius-lg",
+              "stroke": "$hype-purple",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                48,
+                64
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "EAzcv",
+                  "name": "BannerTitle",
+                  "fill": "$hype-text",
+                  "content": "Can't find your moment?",
+                  "fontFamily": "$hype-font-display",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "toFn0",
+                  "name": "BannerSub",
+                  "fill": "$hype-text-2",
+                  "content": "Create your own countdown and share it with a link.",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "BMYQ8",
+                  "name": "BannerBtnWrap",
+                  "padding": [
+                    12,
+                    0,
+                    0,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "id": "aDpHt",
+                      "type": "ref",
+                      "ref": "hzm9X",
+                      "name": "BannerCTA",
+                      "descendants": {
+                        "K9y1Ue": {
+                          "content": "Create Timer"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hMB9A",
+          "name": "Footer",
+          "width": "fill_container",
+          "stroke": "$hype-border",
+          "strokeWidth": {
+            "top": 1
+          },
+          "padding": [
+            24,
+            120
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "I1sx21",
+              "name": "FooterBrand",
+              "fill": "$hype-text-3",
+              "content": "Hype ⏳ — Countdown to what's next",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "dPz3w",
+              "name": "FooterNote",
+              "fill": "$hype-text-3",
+              "content": "ALL TIMES IN YOUR LOCAL TIMEZONE",
+              "fontFamily": "$hype-font-mono",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "vrAWQ",
+      "x": 1580,
+      "y": -96,
+      "name": "Hype — Timer Detail",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": [
+        "$hype-bg",
+        {
+          "type": "gradient",
+          "gradientType": "radial",
+          "enabled": true,
+          "rotation": 0,
+          "size": {
+            "width": 1.3,
+            "height": 0.9
+          },
+          "colors": [
+            {
+              "color": "#A855F729",
+              "position": 0
+            },
+            {
+              "color": "#A855F700",
+              "position": 1
+            }
+          ],
+          "center": {
+            "y": 0.55
+          }
+        }
+      ],
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "e51c74",
+          "layoutPosition": "absolute",
+          "x": -160,
+          "y": 200,
+          "name": "Streak 1",
+          "opacity": 0.4,
+          "rotation": -9,
+          "fill": "$hype-purple",
+          "width": 900,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "E8J4n",
+          "layoutPosition": "absolute",
+          "x": 700,
+          "y": 420,
+          "name": "Streak 2",
+          "opacity": 0.4,
+          "rotation": 7,
+          "fill": "$hype-cyan",
+          "width": 760,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "jkahN",
+          "layoutPosition": "absolute",
+          "x": 80,
+          "y": 720,
+          "name": "Streak 3",
+          "opacity": 0.4,
+          "rotation": -7,
+          "fill": "$hype-pink",
+          "width": 820,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "id": "lvHoY",
+          "type": "ref",
+          "ref": "Lcrnu",
+          "name": "TopNav",
+          "width": "fill_container"
+        },
+        {
+          "type": "frame",
+          "id": "pMb3W",
+          "name": "Center",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            0,
+            120,
+            40,
+            120
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "b0bGa",
+              "name": "EventEmoji",
+              "fill": "$hype-text",
+              "content": "🎮",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 64,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "GWAko",
+              "name": "EventTitle",
+              "fill": "$hype-text",
+              "content": "GTA 6 Release",
+              "fontFamily": "$hype-font-display",
+              "fontSize": 42,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "S9OtO",
+              "name": "MetaRow",
+              "gap": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BnKEr",
+                  "name": "CategoryTag",
+                  "fill": "$hype-purple-soft",
+                  "cornerRadius": "$hype-radius-full",
+                  "stroke": "$hype-purple",
+                  "strokeWidth": 1,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "wqIMz",
+                      "name": "CategoryLabel",
+                      "fill": "$hype-purple",
+                      "content": "GAMES",
+                      "fontFamily": "$hype-font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "HC9Fr",
+                  "name": "TargetDate",
+                  "fill": "$hype-text-2",
+                  "content": "November 19, 2026 · 12:00 AM (your local time)",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JsAIz",
+              "name": "BigCountdown",
+              "gap": 36,
+              "padding": [
+                24,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "YNWRT",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit DAYS",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "134",
+                      "fontSize": 132
+                    },
+                    "HYEhi": {
+                      "content": "DAYS",
+                      "fontSize": 14
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "OD5Vo",
+                  "name": "Sep1",
+                  "fill": "$hype-text-3",
+                  "content": ":",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 88,
+                  "fontWeight": "300"
+                },
+                {
+                  "id": "z7zrtu",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit HOURS",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "16",
+                      "fontSize": 132
+                    },
+                    "HYEhi": {
+                      "content": "HOURS",
+                      "fontSize": 14
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "NGOfx",
+                  "name": "Sep2",
+                  "fill": "$hype-text-3",
+                  "content": ":",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 88,
+                  "fontWeight": "300"
+                },
+                {
+                  "id": "hrDJT",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit MINUTES",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "22",
+                      "fontSize": 132
+                    },
+                    "HYEhi": {
+                      "content": "MINUTES",
+                      "fontSize": 14
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "pRZMs",
+                  "name": "Sep3",
+                  "fill": "$hype-text-3",
+                  "content": ":",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 88,
+                  "fontWeight": "300"
+                },
+                {
+                  "id": "cojyi",
+                  "type": "ref",
+                  "ref": "jm22K",
+                  "name": "Unit SECONDS",
+                  "descendants": {
+                    "grIUb": {
+                      "content": "41",
+                      "fontSize": 132
+                    },
+                    "HYEhi": {
+                      "content": "SECONDS",
+                      "fontSize": 14
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mHuN3",
+              "name": "ShareRow",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "gsltt",
+                  "type": "ref",
+                  "ref": "AmS5D",
+                  "name": "CopyLink",
+                  "descendants": {
+                    "V4hJR1": {
+                      "content": "🔗 Copy link"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "u4XTn",
+          "layoutPosition": "absolute",
+          "x": 604,
+          "y": 816,
+          "name": "CopiedToast",
+          "fill": "$hype-surface-2",
+          "cornerRadius": "$hype-radius-full",
+          "stroke": "$hype-border-strong",
+          "strokeWidth": 1,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000066",
+            "offset": {
+              "x": 0,
+              "y": 8
+            },
+            "blur": 24
+          },
+          "gap": 8,
+          "padding": [
+            10,
+            20
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "rY4z6",
+              "name": "ToastLabel",
+              "fill": "$hype-text",
+              "content": "✓ Copied",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "tigjP",
+      "x": 3160,
+      "y": -96,
+      "name": "Hype — Timer Detail (Ended)",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": [
+        "$hype-bg",
+        {
+          "type": "gradient",
+          "gradientType": "radial",
+          "enabled": true,
+          "rotation": 0,
+          "size": {
+            "width": 1.3,
+            "height": 0.9
+          },
+          "colors": [
+            {
+              "color": "#A855F729",
+              "position": 0
+            },
+            {
+              "color": "#A855F700",
+              "position": 1
+            }
+          ],
+          "center": {
+            "y": 0.55
+          }
+        }
+      ],
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "i8yec",
+          "layoutPosition": "absolute",
+          "x": -160,
+          "y": 200,
+          "name": "Streak 1",
+          "opacity": 0.4,
+          "rotation": -9,
+          "fill": "$hype-purple",
+          "width": 900,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "jXkHQ",
+          "layoutPosition": "absolute",
+          "x": 700,
+          "y": 420,
+          "name": "Streak 2",
+          "opacity": 0.4,
+          "rotation": 7,
+          "fill": "$hype-cyan",
+          "width": 760,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "ZAdLW",
+          "layoutPosition": "absolute",
+          "x": 80,
+          "y": 720,
+          "name": "Streak 3",
+          "opacity": 0.4,
+          "rotation": -7,
+          "fill": "$hype-pink",
+          "width": 820,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "id": "ZPTJ9",
+          "type": "ref",
+          "ref": "Lcrnu",
+          "name": "TopNav",
+          "width": "fill_container"
+        },
+        {
+          "type": "frame",
+          "id": "zYc7T",
+          "name": "Center",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            0,
+            120,
+            40,
+            120
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "gqeHh",
+              "name": "EventEmoji",
+              "fill": "$hype-text",
+              "content": "🎆",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 72,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "AMD1H",
+              "name": "EventTitle",
+              "fill": "$hype-text",
+              "content": "New Year 2027",
+              "fontFamily": "$hype-font-display",
+              "fontSize": 42,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "JZIRO",
+              "name": "MetaRow",
+              "gap": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JeFSx",
+                  "name": "CategoryTag",
+                  "fill": "$hype-purple-soft",
+                  "cornerRadius": "$hype-radius-full",
+                  "stroke": "$hype-purple",
+                  "strokeWidth": 1,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rLv4k",
+                      "name": "CategoryLabel",
+                      "fill": "$hype-purple",
+                      "content": "HOLIDAYS",
+                      "fontFamily": "$hype-font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "LiZ4Q",
+                  "name": "TargetDate",
+                  "fill": "$hype-text-2",
+                  "content": "January 1, 2027 · 12:00 AM (your local time)",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "c3gfv4",
+              "name": "Celebration",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": [
+                16,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "r2rsfy",
+                  "name": "PartyEmoji",
+                  "fill": "$hype-text",
+                  "content": "🎉",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 88,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "A0BXR",
+                  "name": "TimeUp",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$hype-purple",
+                        "position": 0
+                      },
+                      {
+                        "color": "$hype-pink",
+                        "position": 0.6
+                      },
+                      {
+                        "color": "$hype-cyan",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "content": "It's time!",
+                  "fontFamily": "$hype-font-display",
+                  "fontSize": 88,
+                  "fontWeight": "700",
+                  "letterSpacing": -1
+                },
+                {
+                  "type": "text",
+                  "id": "fEf8l",
+                  "name": "DoneCaption",
+                  "fill": "$hype-text-2",
+                  "content": "THE WAIT IS OVER",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 14,
+                  "fontWeight": "normal",
+                  "letterSpacing": 3
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NcYwg",
+              "name": "ShareRow",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "k2TtX",
+                  "type": "ref",
+                  "ref": "AmS5D",
+                  "name": "CopyLink",
+                  "descendants": {
+                    "V4hJR1": {
+                      "content": "🔗 Copy link"
+                    }
+                  }
+                },
+                {
+                  "id": "gYuiD",
+                  "type": "ref",
+                  "ref": "hzm9X",
+                  "name": "CreateOwnTimer",
+                  "descendants": {
+                    "K9y1Ue": {
+                      "content": "Create your own timer"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lenTc",
+          "layoutPosition": "absolute",
+          "x": 604,
+          "y": 816,
+          "name": "CopiedToast",
+          "enabled": false,
+          "fill": "$hype-surface-2",
+          "cornerRadius": "$hype-radius-full",
+          "stroke": "$hype-border-strong",
+          "strokeWidth": 1,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000066",
+            "offset": {
+              "x": 0,
+              "y": 8
+            },
+            "blur": 24
+          },
+          "gap": 8,
+          "padding": [
+            10,
+            20
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ixLau",
+              "name": "ToastLabel",
+              "fill": "$hype-text",
+              "content": "✓ Copied",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "nOpzp",
+      "x": 4740,
+      "y": -96,
+      "name": "Hype — Create",
+      "clip": true,
+      "width": 1440,
+      "height": 1060,
+      "fill": [
+        "$hype-bg",
+        {
+          "type": "gradient",
+          "gradientType": "radial",
+          "enabled": true,
+          "rotation": 0,
+          "size": {
+            "width": 1.1,
+            "height": 0.8
+          },
+          "colors": [
+            {
+              "color": "#A855F721",
+              "position": 0
+            },
+            {
+              "color": "#A855F700",
+              "position": 1
+            }
+          ],
+          "center": {
+            "y": 0.35
+          }
+        }
+      ],
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "m17fav",
+          "layoutPosition": "absolute",
+          "x": -140,
+          "y": 220,
+          "name": "Streak 1",
+          "opacity": 0.35,
+          "rotation": -8,
+          "fill": "$hype-purple",
+          "width": 820,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "aqQto",
+          "layoutPosition": "absolute",
+          "x": 760,
+          "y": 820,
+          "name": "Streak 2",
+          "opacity": 0.35,
+          "rotation": 6.000000000000001,
+          "fill": "$hype-cyan",
+          "width": 760,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "id": "S7uKG",
+          "type": "ref",
+          "ref": "Lcrnu",
+          "name": "TopNav",
+          "width": "fill_container"
+        },
+        {
+          "type": "frame",
+          "id": "unDkN",
+          "name": "FormWrap",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            40,
+            0
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "QWmAZ",
+              "name": "FormCard",
+              "width": 600,
+              "fill": "$hype-surface",
+              "cornerRadius": "$hype-radius-lg",
+              "stroke": "$hype-border",
+              "strokeWidth": 1,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000080",
+                "offset": {
+                  "x": 0,
+                  "y": 24
+                },
+                "blur": 64
+              },
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                40,
+                44
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uCjds",
+                  "name": "FormHead",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MQLFP",
+                      "name": "FormTitle",
+                      "fill": "$hype-text",
+                      "content": "New countdown ⏳",
+                      "fontFamily": "$hype-font-display",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bkRed",
+                      "name": "FormSub",
+                      "fill": "$hype-text-2",
+                      "content": "Pick a moment, get a link, share the hype.",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hpdK1",
+                  "name": "FieldTitle",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "a3mhgK",
+                      "name": "LabelRow",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "KR7iw",
+                          "name": "Label",
+                          "fill": "$hype-text",
+                          "content": "Title",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ZYKbl",
+                          "name": "Counter",
+                          "fill": "$hype-text-3",
+                          "content": "14 / 80",
+                          "fontFamily": "$hype-font-mono",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vio2U",
+                      "name": "InputTitle",
+                      "width": "fill_container",
+                      "fill": "$hype-surface-2",
+                      "cornerRadius": "$hype-radius-sm",
+                      "stroke": "$hype-border-strong",
+                      "strokeWidth": 1,
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "s58RGE",
+                          "name": "InputValue",
+                          "fill": "$hype-text",
+                          "content": "Graduation day",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jWIqj",
+                  "name": "DateTimeRow",
+                  "width": "fill_container",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Nf43K",
+                      "name": "FieldDate",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IpEkj",
+                          "name": "Label",
+                          "fill": "$hype-text",
+                          "content": "Date",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "j5BjB",
+                          "name": "InputDate",
+                          "width": "fill_container",
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border-strong",
+                          "strokeWidth": 1,
+                          "gap": 10,
+                          "padding": [
+                            14,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "hEoti",
+                              "name": "IconCal",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "calendar",
+                              "library": "lucide",
+                              "fill": "$hype-text-3"
+                            },
+                            {
+                              "type": "text",
+                              "id": "FrQiB",
+                              "name": "InputValue",
+                              "fill": "$hype-text",
+                              "content": "Jun 26, 2027",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 15,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "E0tYCp",
+                      "name": "FieldTime",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qZaT2",
+                          "name": "Label",
+                          "fill": "$hype-text",
+                          "content": "Time",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "JiOsn",
+                          "name": "InputTime",
+                          "width": "fill_container",
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border-strong",
+                          "strokeWidth": 1,
+                          "gap": 10,
+                          "padding": [
+                            14,
+                            16
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "Xb3Ci",
+                              "name": "IconClock",
+                              "width": 16,
+                              "height": 16,
+                              "icon": "clock-3",
+                              "library": "lucide",
+                              "fill": "$hype-text-3"
+                            },
+                            {
+                              "type": "text",
+                              "id": "W47JT",
+                              "name": "InputValue",
+                              "fill": "$hype-text",
+                              "content": "2:00 PM",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 15,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "MGlui",
+                          "name": "TzHint",
+                          "fill": "$hype-text-3",
+                          "content": "In your local timezone",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "N7eV6L",
+                  "name": "FieldEmoji",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CmMsf",
+                      "name": "Label",
+                      "fill": "$hype-text",
+                      "content": "Emoji",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "teuXb",
+                      "name": "EmojiPalette",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Ck3AQ",
+                          "name": "PaletteRow 1",
+                          "width": "fill_container",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Ax9US",
+                              "name": "Emoji ⏳",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "m94L9j",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "⏳",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "oVMYK",
+                              "name": "Emoji 🎮",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "GfECF",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🎮",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "v8VXk7",
+                              "name": "Emoji ⚽",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "SqxQy",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "⚽",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "XUULL",
+                              "name": "Emoji 🎬",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "VqgiM",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🎬",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "q7hI6",
+                              "name": "Emoji 📱",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "bkiCU",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "📱",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "x7IUT5",
+                              "name": "Emoji 🎉",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "daGg1",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🎉",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "NT1I0",
+                              "name": "Emoji 🎂",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "FhZXi",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🎂",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "nUcwm",
+                              "name": "Emoji ❤️",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "NLBDB",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "❤️",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QwNy6",
+                          "name": "PaletteRow 2",
+                          "width": "fill_container",
+                          "gap": 10,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "kqCP1",
+                              "name": "Emoji ✈️",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "I3ySwJ",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "✈️",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "N4Fqyd",
+                              "name": "Emoji 🚀",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "TRyoL",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🚀",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "d8ijIv",
+                              "name": "Emoji 🏆",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "muNBb",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🏆",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "j7UhK",
+                              "name": "Emoji 🎓",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-purple-soft",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-purple",
+                              "strokeWidth": 1.5,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "lAPeG",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🎓",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "GcZxt",
+                              "name": "Emoji 🎁",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Zs6gg",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🎁",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "NdXVN",
+                              "name": "Emoji 🌙",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "ucUbs",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🌙",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "EbpzO",
+                              "name": "Emoji 🔥",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "KN12H",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "🔥",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "wjsiW",
+                              "name": "Emoji ⭐",
+                              "width": "fill_container",
+                              "height": 54,
+                              "fill": "$hype-surface-2",
+                              "cornerRadius": "$hype-radius-sm",
+                              "stroke": "$hype-border",
+                              "strokeWidth": 1,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "lMgkm",
+                                  "name": "Glyph",
+                                  "fill": "$hype-text",
+                                  "content": "⭐",
+                                  "fontFamily": "$hype-font-body",
+                                  "fontSize": 24,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cXm7p",
+                  "name": "FieldCategory",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "v3IGY",
+                      "name": "LabelRow",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "k0PkfN",
+                          "name": "Label",
+                          "fill": "$hype-text",
+                          "content": "Category",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "x9SOw4",
+                          "name": "Optional",
+                          "fill": "$hype-text-3",
+                          "content": "(optional)",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uudcN",
+                      "name": "CategoryChips",
+                      "width": "fill_container",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "id": "u9Xgy",
+                          "type": "ref",
+                          "ref": "PySLx",
+                          "name": "Chip Games 🎮",
+                          "padding": [
+                            8,
+                            11
+                          ],
+                          "fill": "$hype-surface-2",
+                          "stroke": "$hype-border",
+                          "descendants": {
+                            "a0yZb": {
+                              "content": "Games 🎮",
+                              "fontSize": 13,
+                              "fill": "$hype-text-2"
+                            }
+                          }
+                        },
+                        {
+                          "id": "Riwrs",
+                          "type": "ref",
+                          "ref": "PySLx",
+                          "name": "Chip Sports ⚽",
+                          "padding": [
+                            8,
+                            11
+                          ],
+                          "fill": "$hype-surface-2",
+                          "stroke": "$hype-border",
+                          "descendants": {
+                            "a0yZb": {
+                              "content": "Sports ⚽",
+                              "fontSize": 13,
+                              "fill": "$hype-text-2"
+                            }
+                          }
+                        },
+                        {
+                          "id": "AHiVP",
+                          "type": "ref",
+                          "ref": "PySLx",
+                          "name": "Chip Movies & TV 🎬",
+                          "padding": [
+                            8,
+                            11
+                          ],
+                          "fill": "$hype-surface-2",
+                          "stroke": "$hype-border",
+                          "descendants": {
+                            "a0yZb": {
+                              "content": "Movies & TV 🎬",
+                              "fontSize": 13,
+                              "fill": "$hype-text-2"
+                            }
+                          }
+                        },
+                        {
+                          "id": "g8gT4t",
+                          "type": "ref",
+                          "ref": "PySLx",
+                          "name": "Chip Tech 📱",
+                          "padding": [
+                            8,
+                            11
+                          ],
+                          "fill": "$hype-surface-2",
+                          "stroke": "$hype-border",
+                          "descendants": {
+                            "a0yZb": {
+                              "content": "Tech 📱",
+                              "fontSize": 13,
+                              "fill": "$hype-text-2"
+                            }
+                          }
+                        },
+                        {
+                          "id": "qPga4",
+                          "type": "ref",
+                          "ref": "PySLx",
+                          "name": "Chip Holidays 🎉",
+                          "padding": [
+                            8,
+                            11
+                          ],
+                          "fill": "$hype-purple-soft",
+                          "stroke": "$hype-purple",
+                          "descendants": {
+                            "a0yZb": {
+                              "content": "Holidays 🎉",
+                              "fontSize": 13,
+                              "fill": "$hype-text"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "oICNx",
+                  "name": "SubmitWrap",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": [
+                    8,
+                    0,
+                    0,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "id": "w9MYzt",
+                      "type": "ref",
+                      "ref": "hzm9X",
+                      "name": "SubmitBtn",
+                      "width": "fill_container",
+                      "padding": [
+                        16,
+                        28
+                      ],
+                      "descendants": {
+                        "K9y1Ue": {
+                          "content": "Start countdown ⏳",
+                          "fontSize": 16
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "KD0de",
+                      "name": "PrivacyHint",
+                      "fill": "$hype-text-3",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "You'll get a unique link — your timer is only visible to people who have it.",
+                      "textAlign": "center",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "uxpJY",
+      "x": 6320,
+      "y": -96,
+      "name": "Hype — Create (Error State)",
+      "width": 760,
+      "fill": "$hype-bg",
+      "cornerRadius": "$hype-radius-md",
+      "layout": "vertical",
+      "padding": 60,
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "B05QAr",
+          "name": "FormCard (Error)",
+          "width": 600,
+          "fill": "$hype-surface",
+          "cornerRadius": "$hype-radius-lg",
+          "stroke": "$hype-border",
+          "strokeWidth": 1,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000080",
+            "offset": {
+              "x": 0,
+              "y": 24
+            },
+            "blur": 64
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            40,
+            44
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "OUQ5k",
+              "name": "FormHead",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eRikn",
+                  "name": "FormTitle",
+                  "fill": "$hype-text",
+                  "content": "New countdown ⏳",
+                  "fontFamily": "$hype-font-display",
+                  "fontSize": 28,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "GD9iz",
+                  "name": "FormSub",
+                  "fill": "$hype-text-2",
+                  "content": "Pick a moment, get a link, share the hype.",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WUfig",
+              "name": "FieldTitle",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NYhca",
+                  "name": "LabelRow",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SA4L4",
+                      "name": "Label",
+                      "fill": "$hype-text",
+                      "content": "Title",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Vlhd3",
+                      "name": "Counter",
+                      "fill": "$hype-danger",
+                      "content": "0 / 80",
+                      "fontFamily": "$hype-font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aAoZG",
+                  "name": "InputTitle",
+                  "width": "fill_container",
+                  "fill": "$hype-danger-soft",
+                  "cornerRadius": "$hype-radius-sm",
+                  "stroke": "$hype-danger",
+                  "strokeWidth": 1.5,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vij4J",
+                      "name": "Placeholder",
+                      "fill": "$hype-text-3",
+                      "content": "What are you waiting for?",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CnLbX",
+                  "name": "ErrorRow",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "cULLl",
+                      "name": "ErrIcon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "circle-alert",
+                      "library": "lucide",
+                      "fill": "$hype-danger"
+                    },
+                    {
+                      "type": "text",
+                      "id": "O8RqRq",
+                      "name": "ErrorMsg",
+                      "fill": "$hype-danger",
+                      "content": "Title is required.",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WdSPm",
+              "name": "DateTimeRow",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jHjPU",
+                  "name": "FieldDate",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GXnXH",
+                      "name": "Label",
+                      "fill": "$hype-text",
+                      "content": "Date",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "O0GjS3",
+                      "name": "InputDate",
+                      "width": "fill_container",
+                      "fill": "$hype-danger-soft",
+                      "cornerRadius": "$hype-radius-sm",
+                      "stroke": "$hype-danger",
+                      "strokeWidth": 1.5,
+                      "gap": 10,
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "T35kb",
+                          "name": "IconCal",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "calendar",
+                          "library": "lucide",
+                          "fill": "$hype-danger"
+                        },
+                        {
+                          "type": "text",
+                          "id": "slNza",
+                          "name": "InputValue",
+                          "fill": "$hype-text",
+                          "content": "Jan 1, 2025",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "otUfm",
+                      "name": "ErrorRow",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "XnwE4",
+                          "name": "ErrIcon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "circle-alert",
+                          "library": "lucide",
+                          "fill": "$hype-danger"
+                        },
+                        {
+                          "type": "text",
+                          "id": "e4NPu",
+                          "name": "ErrorMsg",
+                          "fill": "$hype-danger",
+                          "content": "Pick a date in the future.",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "g9M8uI",
+                  "name": "FieldTime",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "W2x45u",
+                      "name": "Label",
+                      "fill": "$hype-text",
+                      "content": "Time",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Qxpjc",
+                      "name": "InputTime",
+                      "width": "fill_container",
+                      "fill": "$hype-surface-2",
+                      "cornerRadius": "$hype-radius-sm",
+                      "stroke": "$hype-border-strong",
+                      "strokeWidth": 1,
+                      "gap": 10,
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "R2j1sf",
+                          "name": "IconClock",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "clock-3",
+                          "library": "lucide",
+                          "fill": "$hype-text-3"
+                        },
+                        {
+                          "type": "text",
+                          "id": "R3Svh",
+                          "name": "InputValue",
+                          "fill": "$hype-text",
+                          "content": "2:00 PM",
+                          "fontFamily": "$hype-font-body",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZVs7W",
+                      "name": "TzHint",
+                      "fill": "$hype-text-3",
+                      "content": "In your local timezone",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "axiHG",
+              "name": "FieldEmoji",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eWFIO",
+                  "name": "Label",
+                  "fill": "$hype-text",
+                  "content": "Emoji",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "Nfhse",
+                  "name": "EmojiPalette",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "IWIwp",
+                      "name": "PaletteRow 1",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "fIdQw",
+                          "name": "Emoji ⏳",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "CvvQb",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "⏳",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "T7qA7",
+                          "name": "Emoji 🎮",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Y8sHdk",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🎮",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Ny9e8",
+                          "name": "Emoji ⚽",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "PRjtH",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "⚽",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Lkpbk",
+                          "name": "Emoji 🎬",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "OBHep",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🎬",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "S1JpNE",
+                          "name": "Emoji 📱",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "WomUZ",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "📱",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n541RZ",
+                          "name": "Emoji 🎉",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "OfahU",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🎉",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "DnuKb",
+                          "name": "Emoji 🎂",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "W79hy",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🎂",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "r1ABHw",
+                          "name": "Emoji ❤️",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Mmt9o",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "❤️",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TIEVb",
+                      "name": "PaletteRow 2",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "xUAzA",
+                          "name": "Emoji ✈️",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gqjjm",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "✈️",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "bgFD0",
+                          "name": "Emoji 🚀",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "F75b2g",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🚀",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "On1OB",
+                          "name": "Emoji 🏆",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gHuj2",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🏆",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "b7tyP1",
+                          "name": "Emoji 🎓",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-purple-soft",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-purple",
+                          "strokeWidth": 1.5,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Gv8KV",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🎓",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xjqlt",
+                          "name": "Emoji 🎁",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "NHWQn",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🎁",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "PZpeh",
+                          "name": "Emoji 🌙",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "wa7YU",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🌙",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "y1Qso",
+                          "name": "Emoji 🔥",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dZr9v",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "🔥",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "C10UdL",
+                          "name": "Emoji ⭐",
+                          "width": "fill_container",
+                          "height": 54,
+                          "fill": "$hype-surface-2",
+                          "cornerRadius": "$hype-radius-sm",
+                          "stroke": "$hype-border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "OidnT",
+                              "name": "Glyph",
+                              "fill": "$hype-text",
+                              "content": "⭐",
+                              "fontFamily": "$hype-font-body",
+                              "fontSize": 24,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "e3D5i",
+              "name": "FieldCategory",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vu85y",
+                  "name": "LabelRow",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "w7UXF",
+                      "name": "Label",
+                      "fill": "$hype-text",
+                      "content": "Category",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "u84s0",
+                      "name": "Optional",
+                      "fill": "$hype-text-3",
+                      "content": "(optional)",
+                      "fontFamily": "$hype-font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RcQ8y",
+                  "name": "CategoryChips",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "yLnK9",
+                      "type": "ref",
+                      "ref": "PySLx",
+                      "name": "Chip Games 🎮",
+                      "padding": [
+                        8,
+                        11
+                      ],
+                      "fill": "$hype-surface-2",
+                      "stroke": "$hype-border",
+                      "descendants": {
+                        "a0yZb": {
+                          "content": "Games 🎮",
+                          "fontSize": 13,
+                          "fill": "$hype-text-2"
+                        }
+                      }
+                    },
+                    {
+                      "id": "h3Qgf",
+                      "type": "ref",
+                      "ref": "PySLx",
+                      "name": "Chip Sports ⚽",
+                      "padding": [
+                        8,
+                        11
+                      ],
+                      "fill": "$hype-surface-2",
+                      "stroke": "$hype-border",
+                      "descendants": {
+                        "a0yZb": {
+                          "content": "Sports ⚽",
+                          "fontSize": 13,
+                          "fill": "$hype-text-2"
+                        }
+                      }
+                    },
+                    {
+                      "id": "nKxrd",
+                      "type": "ref",
+                      "ref": "PySLx",
+                      "name": "Chip Movies & TV 🎬",
+                      "padding": [
+                        8,
+                        11
+                      ],
+                      "fill": "$hype-surface-2",
+                      "stroke": "$hype-border",
+                      "descendants": {
+                        "a0yZb": {
+                          "content": "Movies & TV 🎬",
+                          "fontSize": 13,
+                          "fill": "$hype-text-2"
+                        }
+                      }
+                    },
+                    {
+                      "id": "pleMs",
+                      "type": "ref",
+                      "ref": "PySLx",
+                      "name": "Chip Tech 📱",
+                      "padding": [
+                        8,
+                        11
+                      ],
+                      "fill": "$hype-surface-2",
+                      "stroke": "$hype-border",
+                      "descendants": {
+                        "a0yZb": {
+                          "content": "Tech 📱",
+                          "fontSize": 13,
+                          "fill": "$hype-text-2"
+                        }
+                      }
+                    },
+                    {
+                      "id": "H7h9v",
+                      "type": "ref",
+                      "ref": "PySLx",
+                      "name": "Chip Holidays 🎉",
+                      "padding": [
+                        8,
+                        11
+                      ],
+                      "fill": "$hype-purple-soft",
+                      "stroke": "$hype-purple",
+                      "descendants": {
+                        "a0yZb": {
+                          "content": "Holidays 🎉",
+                          "fontSize": 13,
+                          "fill": "$hype-text"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "X5nDa1",
+              "name": "SubmitWrap",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                8,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "id": "P9oV5",
+                  "type": "ref",
+                  "ref": "hzm9X",
+                  "name": "SubmitBtn",
+                  "width": "fill_container",
+                  "padding": [
+                    16,
+                    28
+                  ],
+                  "descendants": {
+                    "K9y1Ue": {
+                      "content": "Start countdown ⏳",
+                      "fontSize": 16
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "o1TBSW",
+                  "name": "PrivacyHint",
+                  "fill": "$hype-text-3",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "You'll get a unique link — your timer is only visible to people who have it.",
+                  "textAlign": "center",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "TCOem",
+      "x": 4740,
+      "y": 1104,
+      "name": "Hype — 404",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": [
+        "$hype-bg",
+        {
+          "type": "gradient",
+          "gradientType": "radial",
+          "enabled": true,
+          "rotation": 0,
+          "size": {
+            "width": 1.2,
+            "height": 0.9
+          },
+          "colors": [
+            {
+              "color": "#EC489920",
+              "position": 0
+            },
+            {
+              "color": "#EC489900",
+              "position": 1
+            }
+          ]
+        }
+      ],
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "d6pLQh",
+          "layoutPosition": "absolute",
+          "x": -140,
+          "y": 240,
+          "name": "Streak 1",
+          "opacity": 0.35,
+          "rotation": -8,
+          "fill": "$hype-pink",
+          "width": 860,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "B2U86p",
+          "layoutPosition": "absolute",
+          "x": 720,
+          "y": 680,
+          "name": "Streak 2",
+          "opacity": 0.35,
+          "rotation": 7,
+          "fill": "$hype-purple",
+          "width": 780,
+          "height": 4,
+          "effect": {
+            "type": "blur",
+            "radius": 42
+          }
+        },
+        {
+          "id": "x1wRAT",
+          "type": "ref",
+          "ref": "Lcrnu",
+          "name": "TopNav",
+          "width": "fill_container"
+        },
+        {
+          "type": "frame",
+          "id": "d9emjJ",
+          "name": "Center",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            0,
+            120,
+            60,
+            120
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "T7sdv",
+              "name": "CodeRow",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "V29ho",
+                  "name": "Four1",
+                  "fill": "$hype-text",
+                  "content": "4",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 140,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "b6JX7A",
+                  "name": "Hourglass",
+                  "fill": "$hype-text",
+                  "content": "⏳",
+                  "fontFamily": "$hype-font-body",
+                  "fontSize": 110,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "b4Iy3",
+                  "name": "Four2",
+                  "fill": "$hype-text",
+                  "content": "4",
+                  "fontFamily": "$hype-font-mono",
+                  "fontSize": 140,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "QWMvn",
+              "name": "NfTitle",
+              "fill": "$hype-text",
+              "content": "This timer doesn't exist.",
+              "fontFamily": "$hype-font-display",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "wst2T",
+              "name": "NfSub",
+              "fill": "$hype-text-2",
+              "content": "The link may be wrong, or the timer was never created.",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "w6Upc",
+              "name": "NfActions",
+              "gap": 16,
+              "padding": [
+                16,
+                0,
+                0,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "ArQhr",
+                  "type": "ref",
+                  "ref": "hzm9X",
+                  "name": "BackBtn",
+                  "descendants": {
+                    "K9y1Ue": {
+                      "content": "Back to Explore"
+                    }
+                  }
+                },
+                {
+                  "id": "bURJp",
+                  "type": "ref",
+                  "ref": "AmS5D",
+                  "name": "CreateBtn",
+                  "descendants": {
+                    "V4hJR1": {
+                      "content": "Create Timer"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "S5hIj",
+      "x": 7660,
+      "y": 1104,
+      "name": "Hype — Design Notes",
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 24,
+      "children": [
+        {
+          "type": "note",
+          "id": "pdIMl",
+          "name": "Note: ANIMATION INTENTS",
+          "width": 900,
+          "height": 190,
+          "content": "ANIMATION INTENTS\n• Countdown digits: upward blur/slide transition on each second change (Skiper UI number-flow). Geist Mono's fixed digit width prevents layout shift when digits change.\n• Timer card hover: 1px purple border + outer purple glow (0 8 32 #A855F740) + slight -4px lift, 200ms ease-out.\n• Category chip: spring scale on activation (0.96→1) + background fade.\n• Hero/detail glow streaks: slow 8–12s opacity pulse (0.25↔0.45), no parallax.\n• Primary button hover: gradient brightness +10%, glow expands."
+        },
+        {
+          "type": "note",
+          "id": "o5v9Vo",
+          "name": "Note: CREATE FLOW",
+          "width": 900,
+          "height": 190,
+          "content": "CREATE FLOW\n• Submit → POST /api/timers → redirect to /t/:slug with the returned slug.\n• Submit pending state: button label becomes 'Creating…' (disabled, reduced glow) until the response arrives.\n• On first visit after a successful create, the 'Copy link' button pulses its glow twice (nudges sharing).\n• On 'Copy link' click: button label becomes '✓ Copied' for 1.5s + toast appears below (fade+slide, gone after 2s).\n• Validation: title required, 1–80 chars; date+time must be in the future. Errors show inline under the field on submit attempt (see Error State variant). User enters local time; it is converted to UTC before sending."
+        },
+        {
+          "type": "note",
+          "id": "e6kuC",
+          "name": "Note: STATES & DATA",
+          "width": 900,
+          "height": 190,
+          "content": "STATES & DATA\n• Explore loading: 6 skeleton cards instead of the grid (surface-2 shimmer).\n• Detail loading: dimmed units with '--' values instead of the countdown.\n• Ended check and remaining time are computed with the serverNow offset; never show negative values.\n• Expired curated timers are excluded from the Explore grid (backend filters them).\n• Unknown slug → 404 screen (Hype — 404)."
+        },
+        {
+          "type": "note",
+          "id": "UhRl1",
+          "name": "Note: RESPONSIVE (MOBILE)",
+          "width": 900,
+          "height": 190,
+          "content": "RESPONSIVE (MOBILE NOTE)\n• Explore: single-column grid, hero countdown fontSize ~56, chips scroll horizontally, nav CTA collapses to '+ Create'.\n• Detail: countdown as a 2×2 grid (DAYS/HOURS on top, MINUTES/SECONDS below), fontSize ~72.\n• Create: form card full width, emoji palette 6 columns.\n• All touch targets ≥44px."
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "CVv0i",
+      "x": 6320,
+      "y": 1104,
+      "name": "Hype — Explore (Empty Category)",
+      "width": 1200,
+      "fill": "$hype-bg",
+      "cornerRadius": "$hype-radius-md",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": [
+        48,
+        60
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "yyFtE",
+          "name": "VariantLabel",
+          "fill": "$hype-text-3",
+          "content": "EXPLORE — EMPTY CATEGORY RESULT (GRID AREA VARIANT)",
+          "fontFamily": "$hype-font-mono",
+          "fontSize": 12,
+          "fontWeight": "normal",
+          "letterSpacing": 2
+        },
+        {
+          "type": "frame",
+          "id": "DCA9w",
+          "name": "CategoryChips",
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "OaRmy",
+              "type": "ref",
+              "ref": "PySLx",
+              "name": "Chip All",
+              "descendants": {
+                "a0yZb": {
+                  "content": "All"
+                }
+              }
+            },
+            {
+              "id": "wf2Gs",
+              "type": "ref",
+              "ref": "PySLx",
+              "name": "Chip Games 🎮",
+              "fill": "$hype-surface",
+              "stroke": "$hype-border",
+              "descendants": {
+                "a0yZb": {
+                  "content": "Games 🎮",
+                  "fill": "$hype-text-2",
+                  "fontWeight": "500"
+                }
+              }
+            },
+            {
+              "id": "y6JvjV",
+              "type": "ref",
+              "ref": "PySLx",
+              "name": "Chip Sports ⚽",
+              "fill": "$hype-surface",
+              "stroke": "$hype-border",
+              "descendants": {
+                "a0yZb": {
+                  "content": "Sports ⚽",
+                  "fill": "$hype-text-2",
+                  "fontWeight": "500"
+                }
+              }
+            },
+            {
+              "id": "O0Yk85",
+              "type": "ref",
+              "ref": "PySLx",
+              "name": "Chip Movies & TV 🎬",
+              "fill": "$hype-surface",
+              "stroke": "$hype-border",
+              "descendants": {
+                "a0yZb": {
+                  "content": "Movies & TV 🎬",
+                  "fill": "$hype-text-2",
+                  "fontWeight": "500"
+                }
+              }
+            },
+            {
+              "id": "g3lC2l",
+              "type": "ref",
+              "ref": "PySLx",
+              "name": "Chip Tech 📱",
+              "fill": "$hype-purple-soft",
+              "stroke": "$hype-purple",
+              "descendants": {
+                "a0yZb": {
+                  "content": "Tech 📱",
+                  "fill": "$hype-text",
+                  "fontWeight": "600"
+                }
+              }
+            },
+            {
+              "id": "txz7T",
+              "type": "ref",
+              "ref": "PySLx",
+              "name": "Chip Holidays 🎉",
+              "fill": "$hype-surface",
+              "stroke": "$hype-border",
+              "descendants": {
+                "a0yZb": {
+                  "content": "Holidays 🎉",
+                  "fill": "$hype-text-2",
+                  "fontWeight": "500"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DHNxb",
+          "name": "EmptyState",
+          "width": "fill_container",
+          "fill": "$hype-surface",
+          "cornerRadius": "$hype-radius-md",
+          "stroke": "$hype-border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            64,
+            40
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "RYVB5",
+              "name": "EmptyEmoji",
+              "fill": "$hype-text",
+              "content": "🔭",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 48,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "sDy5Y",
+              "name": "EmptyTitle",
+              "fill": "$hype-text",
+              "content": "No timers in this category yet.",
+              "fontFamily": "$hype-font-display",
+              "fontSize": 22,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "B9BuFf",
+              "name": "EmptySub",
+              "fill": "$hype-text-2",
+              "content": "Know an upcoming event? Create your own countdown and share the link.",
+              "fontFamily": "$hype-font-body",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "nUCpu",
+              "name": "EmptyBtnWrap",
+              "gap": 12,
+              "padding": [
+                12,
+                0,
+                0,
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "f2iX7",
+                  "type": "ref",
+                  "ref": "hzm9X",
+                  "name": "ShowAllBtn",
+                  "descendants": {
+                    "K9y1Ue": {
+                      "content": "Show all"
+                    }
+                  }
+                },
+                {
+                  "id": "x3DH8",
+                  "type": "ref",
+                  "ref": "AmS5D",
+                  "name": "CreateSecondary",
+                  "descendants": {
+                    "V4hJR1": {
+                      "content": "Create Timer"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg": {
+      "type": "color",
+      "value": "#F5F3EE"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "surface-green": {
+      "type": "color",
+      "value": "#E4EEDC"
+    },
+    "surface-green-strong": {
+      "type": "color",
+      "value": "#C8DBBC"
+    },
+    "green-deep": {
+      "type": "color",
+      "value": "#1B3A28"
+    },
+    "accent": {
+      "type": "color",
+      "value": "#2D5E3A"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#1B3A28"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#4A6B52"
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#5E7C65"
+    },
+    "text-inverse": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "border": {
+      "type": "color",
+      "value": "#E1DED2"
+    },
+    "danger": {
+      "type": "color",
+      "value": "#A6453A"
+    },
+    "danger-soft": {
+      "type": "color",
+      "value": "#F6E9E4"
+    },
+    "amber": {
+      "type": "color",
+      "value": "#C07B2D"
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Newsreader"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "font-data": {
+      "type": "string",
+      "value": "Geist Mono"
+    },
+    "radius-lg": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-xl": {
+      "type": "number",
+      "value": 12
+    },
+    "radius-2xl": {
+      "type": "number",
+      "value": 16
+    },
+    "space-xs": {
+      "type": "number",
+      "value": 8
+    },
+    "space-sm": {
+      "type": "number",
+      "value": 12
+    },
+    "space-md": {
+      "type": "number",
+      "value": 16
+    },
+    "space-lg": {
+      "type": "number",
+      "value": 24
+    },
+    "space-xl": {
+      "type": "number",
+      "value": 40
+    },
+    "hype-bg": {
+      "type": "color",
+      "value": "#0A0A12"
+    },
+    "hype-surface": {
+      "type": "color",
+      "value": "#12121C"
+    },
+    "hype-surface-2": {
+      "type": "color",
+      "value": "#1A1A28"
+    },
+    "hype-border": {
+      "type": "color",
+      "value": "#2A2A3E"
+    },
+    "hype-border-strong": {
+      "type": "color",
+      "value": "#3D3D58"
+    },
+    "hype-text": {
+      "type": "color",
+      "value": "#F5F5FA"
+    },
+    "hype-text-2": {
+      "type": "color",
+      "value": "#A3A3BD"
+    },
+    "hype-text-3": {
+      "type": "color",
+      "value": "#70708C"
+    },
+    "hype-purple": {
+      "type": "color",
+      "value": "#A855F7"
+    },
+    "hype-pink": {
+      "type": "color",
+      "value": "#EC4899"
+    },
+    "hype-cyan": {
+      "type": "color",
+      "value": "#06B6D4"
+    },
+    "hype-purple-soft": {
+      "type": "color",
+      "value": "#A855F726"
+    },
+    "hype-danger": {
+      "type": "color",
+      "value": "#F87171"
+    },
+    "hype-danger-soft": {
+      "type": "color",
+      "value": "#F8717120"
+    },
+    "hype-font-display": {
+      "type": "string",
+      "value": "Geist"
+    },
+    "hype-font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "hype-font-mono": {
+      "type": "string",
+      "value": "Geist Mono"
+    },
+    "hype-radius-sm": {
+      "type": "number",
+      "value": 10
+    },
+    "hype-radius-md": {
+      "type": "number",
+      "value": 16
+    },
+    "hype-radius-lg": {
+      "type": "number",
+      "value": 24
+    },
+    "hype-radius-full": {
+      "type": "number",
+      "value": 999
+    }
+  },
+  "fileToken": "735660fb-6dc5-4c0d-badb-e9c60c221f4a"
+}

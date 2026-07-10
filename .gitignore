@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Local dev database (SQLite) — never commit
+backend/data/
+
+# Build output
+frontend/dist/
+
+# Environment / secrets
+.env
+.env.*
+
+# Logs & coverage
+*.log
+logs/
+coverage/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+
+# Scratch & temp artifacts
+*.tmp
+tmp/
+scratch/
+
+# Local Claude Code overrides (project .claude/ itself is published deliberately)
+.claude/settings.local.json

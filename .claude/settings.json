@@ -1,0 +1,26 @@
+{
+  "agent": "orchestrator",
+  "model": "fable",
+  "hooks": {
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/subagent-retro.sh\"",
+            "timeout": 30,
+            "statusMessage": "Checking self-correction protocol..."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(curl http://localhost:*)"
+    ]
+  }
+}
