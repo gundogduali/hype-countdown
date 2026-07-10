@@ -44,5 +44,26 @@
   `backend/src/app.js` + `backend/src/server.js`, new
   `backend/test/static.test.js`.
 
-## Lesson added
-- Yes (contract-first test assertions), see agent definition.
+## Follow-up: Render deploy #1 FAILED (build time)
+- Error: `ERR_MODULE_NOT_FOUND: @vitejs/plugin-react` during `vite build`.
+- Root cause (reproduced locally in a scratchpad copy): Render applies
+  service env vars at build time; `NODE_ENV=production` makes `npm ci` omit
+  devDependencies. Subtlety: `vite` itself still got installed (peer dep of
+  `@tailwindcss/vite`, a regular dependency), so the build *started* and
+  then died importing the devDep-only plugin.
+- Fix: buildCommand now `cd frontend && npm ci --include=dev && npm run
+  build && …`. Verified: same command with `NODE_ENV=production` builds
+  clean with byte-identical output hashes (NODE_ENV doesn't affect `vite
+  build` output — Vite forces its own production mode).
+- Audited the rest for build-vs-runtime env interactions: backend
+  `npm ci --omit=dev` unaffected (no devDeps; flag explicit anyway);
+  STATIC_DIR / TRUST_PROXY / DB_PATH are runtime-only reads in server.js;
+  NODE_VERSION intended at both phases. Re-ran the exact buildCommand from
+  repo root with NODE_ENV=production, re-booted prod-shape on :3199
+  (/ → 200 html, /api/timers → 200 JSON), killed by PID, ports clean,
+  suite still 39/39.
+
+## Lessons added
+- Contract-first test assertions (Rule 7 applies to new tests).
+- Deploy-config env vars apply at build time too; simulate the platform's
+  build with the same env before shipping.

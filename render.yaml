@@ -10,7 +10,12 @@ services:
     region: frankfurt
     # Runs from the repo root: build the frontend, then install prod-only
     # backend deps. frontend/dist is what STATIC_DIR points at below.
-    buildCommand: cd frontend && npm ci && npm run build && cd ../backend && npm ci --omit=dev
+    # NOTE: service env vars (NODE_ENV=production below) also apply at BUILD
+    # time, and NODE_ENV=production makes `npm ci` skip devDependencies —
+    # which is where Vite's build toolchain lives. `--include=dev` forces
+    # them in regardless of NODE_ENV. (This exact miss caused deploy #1 to
+    # fail with ERR_MODULE_NOT_FOUND: @vitejs/plugin-react.)
+    buildCommand: cd frontend && npm ci --include=dev && npm run build && cd ../backend && npm ci --omit=dev
     startCommand: node backend/src/server.js
     # Exercises the API (DB read + JSON), not just the static layer.
     healthCheckPath: /api/timers

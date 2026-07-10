@@ -45,6 +45,7 @@
 - [GH-2] **Published**: https://github.com/gundogduali/hype-countdown (public, main, 102 files, c7c5844); repo/README/assets verified via gh api; topics added; repo-local git email set to GitHub noreply for privacy (2026-07-10)
 - [DP-1] Render deploy prep: Express serves frontend dist when STATIC_DIR set (SPA fallback, cache headers), render.yaml blueprint (free, frankfurt, TRUST_PROXY=true, health check /api/timers); 8 new tests, 39/39; prod-mode boot verified with curl incl. XFF rate-limit keying (2026-07-10)
 - [DP-2] DP-1 code review: **ship-ready** — API never falls through to SPA, traversal-safe, render.yaml runtime shape replicated locally; 2 non-blocking notes (stale-hash /assets miss → index.html; app.get('*') is Express-4-only); Rule 7 sharpened in backend-developer.md (3rd assertion-from-memory recurrence); PM: README Live Demo section + Deploy-to-Render button (2026-07-10)
+- [DP-1b] First Render deploy FAILED at build: NODE_ENV=production applies at build time → npm ci skipped devDeps → @vitejs/plugin-react missing. Fix: `npm ci --include=dev` in buildCommand; root cause reproduced locally, full envVar build-time audit clean, prod-shape boot re-verified, 39/39; lesson added to backend-developer.md; one-line diff PM-reviewed (2026-07-10)
 
 ## Archive (old project — Focus Garden / UGC, cancelled)
 - Done: PRD v1.0 + API contract, backend API (19/19 tests), code-review fixes, 6-screen Pencil design
