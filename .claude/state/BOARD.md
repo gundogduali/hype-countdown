@@ -2,12 +2,11 @@
 
 > 2026-07-07: Project relaunched as **Hype** (popular countdowns) (PRD v2.0). Previous work is in the archive (below).
 
-## To Do (Phase 2: English localization + GitHub publish — 2026-07-09 user decision)
-- [GH-2] Create GitHub repo `hype-countdown` (public) + push + verify — blocked on user installing gh CLI (`brew install gh && gh auth login`)
+## To Do
+- (empty — Phase 2 complete; v1.1 candidates below)
 
 ## In Progress
-- [GH-1] general-purpose: git init + .gitignore + README demo assets (screenshots + GIF) — user decisions 2026-07-10: gh CLI, `hype-countdown` public, README images/GIF demo
-- [PM-4] orchestrator: README.md (English) — after GH-1 assets exist
+- (empty)
 
 ## In Review
 - (empty)
@@ -41,6 +40,9 @@
 - [PM-3] copy.md updated: mobile nav `+ Create`, toast, create hint/footnote, full server-error table (from the QA-2 note) (2026-07-10)
 - [TR-2] .claude/ fully English: 6 agent definitions, 24 retro files, BOARD, hook (bash -n OK), settings statusMessage; PM sweep verified — only glossed historical literals remain; orchestrator language rule re-added in English (PM decision) (2026-07-10)
 - [FE-6] QA-2 F-1 closed: smoke.mjs regex singular/plural-aware; smoke 19/19 on isolated instance; one-line test-infra change, PM reviewed the diff directly (BE-3 precedent) (2026-07-10)
+- [GH-1] repo prep: git init (main) + root .gitignore (dev DB/node_modules/dist ignored, verified) + secret/personal-data sweep clean + demo assets in docs/assets/ (3 desktop PNGs @2x, mobile PNG, 343 KB hero.gif with NumberFlow animation) (2026-07-10)
+- [PM-4] README.md (English, hero GIF + screenshots + agentic-team story) + MIT LICENSE written by PM (2026-07-10)
+- [GH-2] **Published**: https://github.com/gundogduali/hype-countdown (public, main, 102 files, c7c5844); repo/README/assets verified via gh api; topics added; repo-local git email set to GitHub noreply for privacy (2026-07-10)
 
 ## Archive (old project — Focus Garden / UGC, cancelled)
 - Done: PRD v1.0 + API contract, backend API (19/19 tests), code-review fixes, 6-screen Pencil design
