@@ -2,8 +2,8 @@
 
 > 2026-07-07: Project relaunched as **Hype** (popular countdowns) (PRD v2.0). Previous work is in the archive (below).
 
-## To Do
-- (empty — Phase 2 complete; v1.1 candidates below)
+## To Do (Phase 3: live demo on Render — 2026-07-10 user decision: Render free, single service)
+- [DP-3] User deploys on Render (blueprint) → PM verifies the live URL end to end → fix README URL if Render assigned a suffixed domain
 
 ## In Progress
 - (empty)
@@ -43,6 +43,8 @@
 - [GH-1] repo prep: git init (main) + root .gitignore (dev DB/node_modules/dist ignored, verified) + secret/personal-data sweep clean + demo assets in docs/assets/ (3 desktop PNGs @2x, mobile PNG, 343 KB hero.gif with NumberFlow animation) (2026-07-10)
 - [PM-4] README.md (English, hero GIF + screenshots + agentic-team story) + MIT LICENSE written by PM (2026-07-10)
 - [GH-2] **Published**: https://github.com/gundogduali/hype-countdown (public, main, 102 files, c7c5844); repo/README/assets verified via gh api; topics added; repo-local git email set to GitHub noreply for privacy (2026-07-10)
+- [DP-1] Render deploy prep: Express serves frontend dist when STATIC_DIR set (SPA fallback, cache headers), render.yaml blueprint (free, frankfurt, TRUST_PROXY=true, health check /api/timers); 8 new tests, 39/39; prod-mode boot verified with curl incl. XFF rate-limit keying (2026-07-10)
+- [DP-2] DP-1 code review: **ship-ready** — API never falls through to SPA, traversal-safe, render.yaml runtime shape replicated locally; 2 non-blocking notes (stale-hash /assets miss → index.html; app.get('*') is Express-4-only); Rule 7 sharpened in backend-developer.md (3rd assertion-from-memory recurrence); PM: README Live Demo section + Deploy-to-Render button (2026-07-10)
 
 ## Archive (old project — Focus Garden / UGC, cancelled)
 - Done: PRD v1.0 + API contract, backend API (19/19 tests), code-review fixes, 6-screen Pencil design

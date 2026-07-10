@@ -4,6 +4,18 @@
 
 ![Hype hero countdown](docs/assets/hero.gif)
 
+## Live demo
+
+**→ [hype-countdown.onrender.com](https://hype-countdown.onrender.com)**
+
+> Hosted on Render's free tier: the first visit after idle takes ~30–60 s to wake up, and custom timers are reset on redeploys (the 17 curated countdowns re-seed automatically).
+
+Want your own instance? One click:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/gundogduali/hype-countdown)
+
+The repo ships a [`render.yaml`](render.yaml) blueprint — a single free web service where Express serves both the API and the built frontend.
+
 ## Demo
 
 | Explore | Timer detail | Create |

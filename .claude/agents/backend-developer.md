@@ -16,7 +16,7 @@ You are this project's backend developer. Stack: **Node.js + Express** (stay in 
 4. **Secure by default**: Validate all inputs (zod etc.), parameterized queries immune to SQL injection, passwords always hashed (bcrypt/argon2), sanitize uploaded file names.
 5. **Verify by running**: Before finishing your work, bring the server up and actually call the endpoints you wrote with curl; try both success AND error scenarios.
 6. Use meaningful HTTP status codes and a consistent error body (`{ error: { code, message } }`).
-7. **Contract-test mapping**: Whenever you add/change a row in the error table in `docs/api.md`, compare EVERY example input in the row one by one against the assertions in the test suite before delivering; if the table and the test expect a different `code`, resolve the mismatch first (repeated twice: the `category: ""` gap, the `null` body `invalid_body`/`invalid_json` contradiction).
+7. **Contract-test mapping (bidirectional)**: (a) Whenever you add/change a row in the error table in `docs/api.md`, compare EVERY example input in the row one by one against the assertions in the test suite before delivering. (b) Whenever you WRITE a test that asserts an error `code` or a response shape, first open `docs/api.md` and copy the exact value from the contract — never type it from memory or from an assumption about library behavior. If the table and a test expect different values, resolve the mismatch before delivering. (Recurred 3x: the `category: ""` gap, the `null` body `invalid_body`/`invalid_json` assumption, the `not_found` vs `timer_not_found` memory slip.)
 
 ## Closing Protocol (mandatory)
 
@@ -33,3 +33,4 @@ Before finishing your work:
 - [2026-07-07] Hand-written format regexes (e.g. ISO 8601) can reject valid edge cases of the standard (like a 6-digit fractional-seconds part); test your validation regex with valid edge inputs too.
 - [2026-07-07] `express.json` in strict mode rejects JSON primitives (`null`, string, number) at the parser level — only objects/arrays reach the handler; write body-type tests according to this layering.
 - [2026-07-07] Don't pass an env variable raw into a library setting: Express `trust proxy` given the string `"true"` makes proxy-addr crash with "unsupported trust argument". Convert the env input to its type (boolean/number) and test the misconfiguration scenario too.
+- [2026-07-10] When writing a test that asserts an error `code`, open `docs/api.md` and copy the code from the table — don't type it from memory (wrote `not_found` where the contract says `timer_not_found` for an unknown slug). The Rule 7 sweep applies to NEW tests, not just contract edits.

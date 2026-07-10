@@ -1,0 +1,33 @@
+# Render Blueprint — Hype (single free web service)
+# Express serves both the API and the built React frontend.
+# Free-tier trade-off (accepted): the disk is ephemeral, so custom timers are
+# lost on restart/redeploy; the seed self-heals the curated timers on boot.
+services:
+  - type: web
+    name: hype-countdown
+    runtime: node
+    plan: free
+    region: frankfurt
+    # Runs from the repo root: build the frontend, then install prod-only
+    # backend deps. frontend/dist is what STATIC_DIR points at below.
+    buildCommand: cd frontend && npm ci && npm run build && cd ../backend && npm ci --omit=dev
+    startCommand: node backend/src/server.js
+    # Exercises the API (DB read + JSON), not just the static layer.
+    healthCheckPath: /api/timers
+    envVars:
+      # backend/package.json engines: node >=22.5.0 (node:sqlite). Pin the
+      # current LTS major; Render resolves it to the latest 24.x release.
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      # Relative to the process cwd (repo root — see startCommand).
+      - key: STATIC_DIR
+        value: frontend/dist
+      # Render fronts the service with exactly one proxy hop. app.js maps
+      # "true" → trust proxy = 1 so the per-IP rate limit keys on the real
+      # client IP instead of the proxy's. Without this every visitor would
+      # share one rate-limit bucket.
+      - key: TRUST_PROXY
+        value: "true"
+      # DB_PATH intentionally left at its default (backend/data/hype.db).
