@@ -48,7 +48,9 @@
 - The "ended" decision uses this offset-corrected time.
 
 ## 4. Out of MVP (v2+)
-Accounts/auth, timer edit/delete, user-submitted public events, view counter & trending sort, reminders/notifications, theme toggle (light), OG image/social cards, multi-language, recurring events (every New Year etc.), search.
+Accounts/auth, timer edit/delete, user-submitted public events, view counter & trending sort, reminders/notifications, theme toggle (light), multi-language, recurring events (every New Year etc.), search.
+
+> OG image/social cards moved into scope as of v2.2 (§9) — see below.
 
 ## 5. Screens
 1. **Explore** (`/`): hero + category filter + popular grid + create CTA.
@@ -81,6 +83,36 @@ Accounts/auth, timer edit/delete, user-submitted public events, view counter & t
 - API contract: `docs/api.md` — single source of truth.
 - All time math in UTC; "expired" decisions use the server clock.
 - Date formatting uses the browser's default locale (no hardcoded locale).
+
+## 9. v2.2 Features (Share Cards, Reactions, Hype Messages)
+
+Planned and tracked as atomic issues on `.claude/state/BOARD.md` (via the `atomic-plan` skill); this section is the feature-level source of truth for acceptance criteria. New team roles: `share-card-developer` (image render pipeline), `content-moderator` (moderation/rate-limit layer) — see `.claude/agents/orchestrator.md` Team table.
+
+### 9.1 Social Share Card (dynamic OG/Twitter image)
+Pasting a Hype timer link into WhatsApp/Twitter/Discord/iMessage should show a real preview image with the timer's title, emoji, and remaining time — not a blank/generic card.
+- [ ] `GET /api/timers/:slug/og-image.png` returns a rendered PNG for any valid curated or custom slug; `404` (standard error body) for an unknown slug.
+- [ ] The image is correct for: a very long title (no overflow), an already-expired timer (renders its ended state, no crash), and a title with emoji/non-Latin characters (glyphs render, no tofu boxes).
+- [ ] The image reflects the *current* title/target — editing is out of MVP so this mainly matters for curated-seed corrections; the cache must not serve a stale image after a seed update.
+- [ ] The timer detail page (`/t/:slug`) emits `og:image`, `og:title`, `og:description`, and `twitter:card=summary_large_image` meta tags pointing at the endpoint above.
+- [ ] Contract documented in `docs/api.md` before implementation is considered done.
+
+### 9.2 Hype Reactions (emoji tap bar)
+Anonymous, no-account reaction bar under a timer: a fixed small set of emoji (e.g. 🔥⏳🎉😱👀), each with a live count.
+- [ ] A visitor can react with any of the fixed emoji; the count increments and persists across reloads (SQLite).
+- [x] A given IP can react to a given timer at most **once per emoji, permanently** (not a time-boxed window — my original "per rate-limit window" wording was underspecified and never tied to a concrete duration; ratified 2026-07-20 after RX-3 shipped a permanent per-`(slug, emoji, ip)` uniqueness constraint, which also matches how reaction/like buttons conventionally behave elsewhere) — enforced server-side via a DB-level uniqueness constraint, not just hidden by the UI. Known MVP limitation: identity is IP-only (no accounts/device tokens), so a shared IP (e.g. NAT, office wifi) is a single "reactor" — accepted trade-off, documented in `docs/api.md`.
+- [ ] No free text in this feature — fixed emoji set only, no custom input, so this issue does not require the moderation layer.
+- [ ] UI never lets a user "spam" the button client-side (disabled/optimistic-locked after use) but the server is the actual source of truth for the limit.
+
+### 9.3 Hype Messages (short free-text reaction, moderated)
+An optional short text field (e.g. max 80 chars) a visitor can attach alongside a reaction — "So hyped for this 🔥", etc. Shown publicly under the timer, newest first, capped list length.
+- [ ] Message max length enforced (80 chars), empty/whitespace-only rejected.
+- [ ] Every message passes through `content-moderator`'s middleware before it is stored: blocklist check, spam-pattern check (repeated chars, bare URLs), HTML/script sanitization.
+- [ ] Rejected messages return a specific error `code` (documented in `docs/api.md`), distinguishable from a plain validation error.
+- [ ] Rate limit per submitter beyond the moderation layer's own checks (reuse the project's existing per-IP rate-limit convention from `docs/api.md` for POST endpoints).
+- [ ] QA explicitly attempts to bypass each moderation rule (see `content-moderator.md` Rule 5) as part of sign-off — this feature does not ship on "happy path passed" alone.
+
+### 9.4 Explicitly out of scope for 9.1–9.3
+Editing/deleting a submitted message, reporting/flagging by other users, admin moderation dashboard, per-user history — all deferred, not silently implied by "moderation."
 
 ## Appendix A — Curated Seed List (v2.1, English)
 

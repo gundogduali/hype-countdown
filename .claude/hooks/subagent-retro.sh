@@ -16,7 +16,7 @@ agent=$(printf '%s' "$input" | jq -r '.agent_type // .agent_name // .subagent_ty
 
 # The protocol applies only to project team agents.
 case "$agent" in
-  ui-designer|frontend-developer|backend-developer|qa-engineer|code-reviewer|unknown) ;;
+  ui-designer|frontend-developer|backend-developer|qa-engineer|code-reviewer|share-card-developer|content-moderator|unknown) ;;
   *) exit 0 ;;
 esac
 

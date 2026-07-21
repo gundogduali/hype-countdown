@@ -2,7 +2,16 @@
  * Simple in-memory per-IP sliding-window rate limiter.
  * Good enough for a single-process MVP; multiple instances would need a shared store.
  */
-export function createRateLimiter({ limit = 20, windowMs = 60 * 60_000, now = () => new Date() } = {}) {
+export function createRateLimiter({
+  limit = 20,
+  windowMs = 60 * 60_000,
+  now = () => new Date(),
+  // Overridable so other POST endpoints (e.g. Hype Reactions) can reuse this
+  // limiter with wording that matches what they're limiting. Default text is
+  // unchanged so existing callers/tests keep working.
+  message = (minutes) =>
+    `You have created too many timers. Try again in ${minutes} ${minutes === 1 ? 'minute' : 'minutes'}.`,
+} = {}) {
   /** @type {Map<string, number[]>} ip -> request timestamps (ms) */
   const hits = new Map();
 
@@ -19,7 +28,7 @@ export function createRateLimiter({ limit = 20, windowMs = 60 * 60_000, now = ()
       return res.status(429).json({
         error: {
           code: 'rate_limited',
-          message: `You have created too many timers. Try again in ${minutes} ${minutes === 1 ? 'minute' : 'minutes'}.`,
+          message: message(minutes),
         },
       });
     }

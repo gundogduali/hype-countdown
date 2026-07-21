@@ -1,4 +1,4 @@
-# Hype — UI Copy Deck (English, v2.1)
+# Hype — UI Copy Deck (English, v2.2)
 
 > Owner: orchestrator (PM). Single source of truth for user-facing strings. Design (`.pen`) and frontend must match this deck. Deviations require a PM decision.
 
@@ -31,6 +31,25 @@ Card category tags are UPPERCASE mono: `GAMES`, `MOVIES & TV`, `HOLIDAYS`…
 - Ended state: heading `🎉 It's time!` · sub `THE WAIT IS OVER` · action `Create your own timer`
 - Target date line: localized date+time in the visitor's locale/timezone (browser default locale — no hardcoded locale)
 
+## Timer Detail — Hype Reactions & Messages (v2.2)
+- Reaction bar: no error copy needed — `POST /timers/:slug/react` is idempotent and always succeeds (`docs/api.md`); a `429 rate_limited` on this route reuses the same message pattern as the Create form's `rate_limited` row below, adapted: `Too many reactions. Try again in about {n} minutes.`
+- Message input placeholder: `Share the hype… 🔥` · char counter: `{n} / 80` (recolor to `$hype-pink` at 70+/80 — a soft warning, not an error; reserve `$hype-danger` strictly for a real rejection)
+- Submit: send-icon button (no text label; icon-only per the approved HM-2 design)
+- Message list header: `{n} MESSAGES` (mirrors Explore's `{n} ACTIVE TIMERS`) · empty state: `No messages yet.` · sub `Be the first to hype this up. 🔥`
+- Server-error mappings (message submission — codes per `docs/api.md` HM-3):
+  | Code | Message |
+  |---|---|
+  | `invalid_message` | `Type something first.` |
+  | `message_too_long` | `Keep it under 80 characters.` |
+  | `message_repeated_chars` | `Looks like spam — try rewriting that.` |
+  | `message_contains_link` | `Links aren't allowed here.` |
+  | `message_blocked_content` | `That message isn't allowed. Try something else.` |
+  | `rate_limited` | `Too many messages. Try again in about {n} minutes.` (singular `minute` when n=1; without `Retry-After`: `Too many messages. Try again in a bit.`) |
+  | network | `Could not reach the server. Check your connection and try again.` |
+  | generic | `Something went wrong. Please try again.` |
+
+> Ratified 2026-07-20 in response to the HM-2 design flag (the designer correctly did not silently ship the `message_blocked_content` string without PM sign-off — that string is confirmed as-is; the other 4 codes are new copy written to match the deck's existing short/plain tone, parallel to the Create form's table above).
+
 ## Create
 - Heading: `New countdown ⏳` · sub `Pick a moment, get a link, share the hype.`
 - Fields: `Title` (placeholder `What are you waiting for?`) · `Date` · `Time` · `Emoji` · `Category` `(optional)`
@@ -54,3 +73,4 @@ Card category tags are UPPERCASE mono: `GAMES`, `MOVIES & TV`, `HOLIDAYS`…
 
 > v2.1 note: deck reconciled with the implemented UI after FE-3 (hero badge vs grid counter distinction, pending state, secondary actions). Frontend is the reference implementation of this deck.
 > 2026-07-10: folded in QA-2's documentation note — mobile nav label, copy toast, create date/time hint + footnote, full server-error mapping table.
+> 2026-07-20: v2.2 — added Hype Reactions & Messages section (PM ratification of HM-2's flagged new copy, 5 server-error mappings for message submission).

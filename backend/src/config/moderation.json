@@ -1,0 +1,9 @@
+{
+  "_readme": "Config for backend/src/middleware/moderation.js. Change these values (not the code) to tune moderation behavior.",
+  "_urlTldsReadme": "HM-3b (2026-07-20): restricted to TLDs that are NOT also common English words/abbreviations, to avoid flagging ordinary phrases like 'game.gg' or 'live.to be honest' as links (see docs/api.md HM-3 trade-offs + .claude/retros/content-moderator-2026-07-20-*.md). Dropped as ambiguous: co, dev, me, tv, shop, club, top, win, click, biz, gg, gl, to, cc, us, uk, ai, gov, edu — all are common words/pronouns/prepositions or informal abbreviations (company, developer, 'me', television, a shop/club, on top, a win, a click, business, 'good game'/'good luck' gaming slang, 'to', carbon-copy, 'us', UK/AI/government/education used conversationally) that can plausibly start a second clause glued to a period with no space. Kept 'ly' as the one addition beyond the PM's example list: it is not itself an English word (only a suffix), so it cannot appear as the first word of a glued second clause, and it remains a common real link-shortener TLD (bit.ly-style) worth catching. Accepted trade-off: a spam link using one of the dropped ambiguous TLDs (e.g. 'spam.gg') is NOT caught by this check alone — see the 'accepted trade-off' test in moderation.test.js.",
+  "maxLength": 80,
+  "repeatedCharMinRun": 6,
+  "urlTlds": [
+    "com", "net", "org", "io", "info", "link", "xyz", "app", "ly"
+  ]
+}

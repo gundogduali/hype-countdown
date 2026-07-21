@@ -15,10 +15,52 @@ const CREATE_TIMERS_TABLE = `
   );
 `;
 
+// Hype Reactions (PRD §9.2): fixed emoji set, anonymous, per-IP-once.
+// Two tables, deliberately separate (per the issue spec):
+//  - reaction_totals: one row per (timer, emoji) — the live count shown to everyone.
+//  - reaction_marks: one row per (timer, emoji, ip) — the uniqueness record that
+//    stops the same IP from double-counting. Its PRIMARY KEY is the actual
+//    constraint (not just an app-level SELECT-before-INSERT), so a duplicate
+//    INSERT fails atomically at the SQLite layer even under concurrent writers.
+const CREATE_REACTIONS_TABLES = `
+  CREATE TABLE IF NOT EXISTS reaction_totals (
+    timer_slug TEXT    NOT NULL REFERENCES timers (slug) ON DELETE CASCADE,
+    emoji      TEXT    NOT NULL CHECK (emoji IN ('🔥', '⏳', '🎉', '😱', '👀')),
+    count      INTEGER NOT NULL DEFAULT 0 CHECK (count >= 0),
+    PRIMARY KEY (timer_slug, emoji)
+  );
+  CREATE TABLE IF NOT EXISTS reaction_marks (
+    timer_slug TEXT NOT NULL REFERENCES timers (slug) ON DELETE CASCADE,
+    emoji      TEXT NOT NULL CHECK (emoji IN ('🔥', '⏳', '🎉', '😱', '👀')),
+    ip         TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (timer_slug, emoji, ip)
+  );
+`;
+
+// Hype Messages (PRD §9.3, issue HM-4): short, moderated free text attached to
+// a timer. Already-sanitized by backend/src/middleware/moderation.js before
+// insertion here — this layer only stores/reads, it never re-derives its own
+// length/blocklist checks (that's HM-3's job). No cap is enforced by the
+// schema itself; MessageService prunes rows beyond MESSAGE_CAP_PER_TIMER on
+// every insert, so storage per timer stays bounded (see services/messages.js
+// for the chosen cap and rationale).
+const CREATE_MESSAGES_TABLE = `
+  CREATE TABLE IF NOT EXISTS messages (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    timer_slug TEXT    NOT NULL REFERENCES timers (slug) ON DELETE CASCADE,
+    message    TEXT    NOT NULL,
+    created_at TEXT    NOT NULL
+  );
+`;
+
 const MIGRATION = `
   ${CREATE_TIMERS_TABLE}
   CREATE INDEX IF NOT EXISTS idx_timers_curated_target ON timers (is_curated, target_at);
   CREATE INDEX IF NOT EXISTS idx_timers_category ON timers (category);
+  ${CREATE_REACTIONS_TABLES}
+  ${CREATE_MESSAGES_TABLE}
+  CREATE INDEX IF NOT EXISTS idx_messages_slug_id ON messages (timer_slug, id);
 `;
 
 /**

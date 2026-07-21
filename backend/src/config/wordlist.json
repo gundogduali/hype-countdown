@@ -1,0 +1,28 @@
+{
+  "_readme": "Starter English blocklist for the Hype Messages moderation layer (backend/src/middleware/moderation.js). To extend: add lowercase strings to `blocklist` below — no code changes needed. Matching is case-insensitive, unicode-normalized (NFKC) and whole-word (word-boundary), so you only need to list the base form once (do not add case variants).",
+  "blocklist": [
+    "fuck",
+    "shit",
+    "bitch",
+    "asshole",
+    "bastard",
+    "cunt",
+    "dick",
+    "piss",
+    "slut",
+    "whore",
+    "nigger",
+    "nigga",
+    "faggot",
+    "retard",
+    "kill yourself",
+    "spam",
+    "viagra",
+    "onlyfans",
+    "free money",
+    "click here",
+    "subscribe now",
+    "follow me",
+    "dm me"
+  ]
+}

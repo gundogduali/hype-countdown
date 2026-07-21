@@ -61,3 +61,38 @@ export function createTimer(data) {
     body: JSON.stringify(data),
   })
 }
+
+/**
+ * Anonymous Hype Reaction (v2.2, RX-3). Idempotent per (slug, emoji, IP): always
+ * 200, whether or not this tap was newly counted. Returns { serverNow, reactions }.
+ */
+export function reactToTimer(slug, emoji) {
+  return request(`/timers/${encodeURIComponent(slug)}/react`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ emoji }),
+  })
+}
+
+/**
+ * Hype Messages (v2.3, HM-4). Submits a moderated free-text message on a timer.
+ * Returns { serverNow, message: { id, message, created_at } } on success (201).
+ * On rejection throws ApiError with one of: invalid_message, message_too_long,
+ * message_repeated_chars, message_contains_link, message_blocked_content,
+ * timer_not_found, rate_limited (see docs/api.md).
+ */
+export function postMessage(slug, message) {
+  return request(`/timers/${encodeURIComponent(slug)}/message`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message }),
+  })
+}
+
+/**
+ * Fetches stored messages for a timer, newest first, capped at 50.
+ * Returns { serverNow, messages: [{ id, message, created_at }] }.
+ */
+export function getMessages(slug) {
+  return request(`/timers/${encodeURIComponent(slug)}/messages`)
+}

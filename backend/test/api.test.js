@@ -61,7 +61,7 @@ describe('Hype API', () => {
     // schema
     const t = body.timers[0];
     assert.deepEqual(Object.keys(t).sort(), [
-      'category', 'created_at', 'emoji', 'is_curated', 'slug', 'target_at', 'title',
+      'category', 'created_at', 'emoji', 'is_curated', 'reactions', 'slug', 'target_at', 'title',
     ]);
     assert.equal(t.is_curated, true);
   });
@@ -325,6 +325,370 @@ describe('Hype API', () => {
     });
     assert.equal(res.status, 400);
     assert.equal((await res.json()).error.code, 'invalid_json');
+  });
+
+  // ---------- POST /api/timers/:slug/react (Hype Reactions, PRD §9.2) ----------
+
+  test('react: timer objects include a reactions field, all-zero by default', async () => {
+    const list = await (await fetch(base + '/timers')).json();
+    assert.deepEqual(list.timers[0].reactions, { '🔥': 0, '⏳': 0, '🎉': 0, '😱': 0, '👀': 0 });
+
+    const detail = await (await fetch(base + '/timers/gta-6')).json();
+    assert.deepEqual(detail.timer.reactions, { '🔥': 0, '⏳': 0, '🎉': 0, '😱': 0, '👀': 0 });
+
+    const created = await (await post('/timers', validCustom)).json();
+    assert.deepEqual(created.timer.reactions, { '🔥': 0, '⏳': 0, '🎉': 0, '😱': 0, '👀': 0 });
+  });
+
+  test('react: happy path increments the count and is reflected on GET afterwards', async () => {
+    const res = await post('/timers/gta-6/react', { emoji: '🔥' });
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.equal(body.serverNow, clock.now.toISOString());
+    assert.deepEqual(body.reactions, { '🔥': 1, '⏳': 0, '🎉': 0, '😱': 0, '👀': 0 });
+
+    const detail = await (await fetch(base + '/timers/gta-6')).json();
+    assert.deepEqual(detail.timer.reactions, { '🔥': 1, '⏳': 0, '🎉': 0, '😱': 0, '👀': 0 });
+  });
+
+  test('react: only the 5 fixed emoji are accepted → 400 invalid_reaction_emoji', async () => {
+    const cases = [
+      undefined, // missing
+      {}, // wrong type object
+      42, // wrong type number
+      '', // empty string
+      '🔥🔥', // multi-emoji (not exactly one of the fixed set)
+      '😀', // valid-looking but different emoji, not in the fixed set
+      'fire', // plain text
+    ];
+    for (const emoji of cases) {
+      const res = await post('/timers/gta-6/react', emoji === undefined ? {} : { emoji });
+      assert.equal(res.status, 400, `case: ${JSON.stringify(emoji)}`);
+      assert.equal((await res.json()).error.code, 'invalid_reaction_emoji', `case: ${JSON.stringify(emoji)}`);
+    }
+    // sanity: every one of the 5 fixed emoji IS accepted
+    for (const emoji of ['🔥', '⏳', '🎉', '😱', '👀']) {
+      const res = await post('/timers/gta-6/react', { emoji });
+      assert.equal(res.status, 200, `emoji: ${emoji}`);
+    }
+  });
+
+  test('react: same IP reacting twice with the same emoji does not double-count', async () => {
+    const first = await (await post('/timers/gta-6/react', { emoji: '🎉' })).json();
+    assert.equal(first.reactions['🎉'], 1);
+
+    const second = await (await post('/timers/gta-6/react', { emoji: '🎉' })).json();
+    assert.equal(second.reactions['🎉'], 1, 'count must not move on a repeat from the same IP');
+
+    // and once more for good measure
+    const third = await (await post('/timers/gta-6/react', { emoji: '🎉' })).json();
+    assert.equal(third.reactions['🎉'], 1);
+  });
+
+  test('react: same IP CAN react with a different emoji, and/or a different timer', async () => {
+    await post('/timers/gta-6/react', { emoji: '🔥' });
+    const differentEmoji = await (await post('/timers/gta-6/react', { emoji: '👀' })).json();
+    assert.equal(differentEmoji.reactions['🔥'], 1);
+    assert.equal(differentEmoji.reactions['👀'], 1);
+
+    const other = await (await post('/timers/world-cup-2026-final/react', { emoji: '🔥' })).json();
+    assert.equal(other.reactions['🔥'], 1, 'a different timer has its own independent counts');
+
+    const gta6 = await (await fetch(base + '/timers/gta-6')).json();
+    assert.equal(gta6.timer.reactions['🔥'], 1, 'gta-6 count unaffected by the other timer reaction');
+  });
+
+  test('react: different IP CAN react with the same emoji on the same timer', async () => {
+    process.env.TRUST_PROXY = '1';
+    try {
+      server.close();
+      await start();
+      const a = await post('/timers/gta-6/react', { emoji: '😱' }, { 'X-Forwarded-For': '1.1.1.1' });
+      assert.equal((await a.json()).reactions['😱'], 1);
+      const b = await post('/timers/gta-6/react', { emoji: '😱' }, { 'X-Forwarded-For': '2.2.2.2' });
+      assert.equal((await b.json()).reactions['😱'], 2);
+      // repeat from the first IP again is still a no-op
+      const aAgain = await post('/timers/gta-6/react', { emoji: '😱' }, { 'X-Forwarded-For': '1.1.1.1' });
+      assert.equal((await aAgain.json()).reactions['😱'], 2);
+    } finally {
+      delete process.env.TRUST_PROXY;
+    }
+  });
+
+  test('react: unknown slug → 404 timer_not_found (same shape as GET /api/timers/:slug)', async () => {
+    const res = await post('/timers/no-such-thing/react', { emoji: '🔥' });
+    assert.equal(res.status, 404);
+    const body = await res.json();
+    assert.equal(body.error.code, 'timer_not_found');
+    assert.ok(body.error.message);
+  });
+
+  test('react: non-object JSON body → 400 invalid_body / invalid_json', async () => {
+    const send = (raw) =>
+      fetch(base + '/timers/gta-6/react', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: raw,
+      });
+
+    let res = await send('[1,2]');
+    assert.equal(res.status, 400);
+    assert.equal((await res.json()).error.code, 'invalid_body');
+
+    for (const raw of ['null', '"text"', '42']) {
+      res = await send(raw);
+      assert.equal(res.status, 400, `case: ${raw}`);
+      assert.equal((await res.json()).error.code, 'invalid_json', `case: ${raw}`);
+    }
+  });
+
+  test('react: body over 100KB → 413 payload_too_large', async () => {
+    const res = await post('/timers/gta-6/react', { emoji: '🔥', pad: 'x'.repeat(150 * 1024) });
+    assert.equal(res.status, 413);
+    assert.equal((await res.json()).error.code, 'payload_too_large');
+  });
+
+  test('react: rate limit 429 + Retry-After, independent of the per-emoji uniqueness check', async () => {
+    server.close();
+    await start({ reactionRateLimit: { limit: 3, windowMs: 60 * 60_000 } });
+
+    const emoji = ['🔥', '⏳', '🎉']; // 3 distinct emoji: within limit, none are duplicates
+    for (const e of emoji) {
+      const res = await post('/timers/gta-6/react', { emoji: e });
+      assert.equal(res.status, 200, `emoji ${e} must be within the limit`);
+    }
+    // 4th request (yet another distinct emoji, so not blocked by uniqueness) hits the rate limit
+    const blocked = await post('/timers/gta-6/react', { emoji: '😱' });
+    assert.equal(blocked.status, 429);
+    const body = await blocked.json();
+    assert.equal(body.error.code, 'rate_limited');
+    assert.ok(Number(blocked.headers.get('retry-after')) > 0);
+
+    // rate limit does not affect GETs
+    assert.equal((await fetch(base + '/timers/gta-6')).status, 200);
+  });
+
+  // ---------- Hype Messages (HM-4, PRD §9.3) ----------
+
+  test('messages: no messages yet → GET returns an empty list, not an error', async () => {
+    const res = await fetch(base + '/timers/gta-6/messages');
+    assert.equal(res.status, 200);
+    const body = await res.json();
+    assert.ok(body.serverNow);
+    assert.deepEqual(body.messages, []);
+  });
+
+  test('messages: happy path — valid short message is stored and returned by GET, newest first', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'So hyped for this 🔥' });
+    assert.equal(res.status, 201);
+    const created = await res.json();
+    assert.ok(created.serverNow);
+    assert.equal(created.message.message, 'So hyped for this 🔥');
+    assert.equal(created.message.created_at, clock.now.toISOString());
+    assert.ok(Number.isInteger(created.message.id));
+
+    // advance the clock so ordering is unambiguous
+    clock.now = new Date(clock.now.getTime() + 1000);
+    const second = await (await post('/timers/gta-6/message', { message: 'Cant wait!' })).json();
+
+    const list = await (await fetch(base + '/timers/gta-6/messages')).json();
+    assert.equal(list.messages.length, 2);
+    // newest first
+    assert.equal(list.messages[0].id, second.message.id);
+    assert.equal(list.messages[0].message, 'Cant wait!');
+    assert.equal(list.messages[1].id, created.message.id);
+
+    // messages for a different timer stay independent
+    const otherList = await (await fetch(base + '/timers/world-cup-2026-final/messages')).json();
+    assert.deepEqual(otherList.messages, []);
+  });
+
+  test('messages: unknown slug → 404 timer_not_found (GET and POST)', async () => {
+    const getRes = await fetch(base + '/timers/no-such-thing/messages');
+    assert.equal(getRes.status, 404);
+    assert.equal((await getRes.json()).error.code, 'timer_not_found');
+
+    const postRes = await post('/timers/no-such-thing/message', { message: 'hi' });
+    assert.equal(postRes.status, 404);
+    assert.equal((await postRes.json()).error.code, 'timer_not_found');
+  });
+
+  test('messages: non-object JSON body → 400 invalid_body / invalid_json', async () => {
+    const send = (raw) =>
+      fetch(base + '/timers/gta-6/message', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: raw,
+      });
+
+    let res = await send('[1,2]');
+    assert.equal(res.status, 400);
+    assert.equal((await res.json()).error.code, 'invalid_body');
+
+    for (const raw of ['null', '"text"', '42']) {
+      res = await send(raw);
+      assert.equal(res.status, 400, `case: ${raw}`);
+      assert.equal((await res.json()).error.code, 'invalid_json', `case: ${raw}`);
+    }
+  });
+
+  test('messages: body over 100KB → 413 payload_too_large', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'hi', pad: 'x'.repeat(150 * 1024) });
+    assert.equal(res.status, 413);
+    assert.equal((await res.json()).error.code, 'payload_too_large');
+  });
+
+  // Every moderation rejection code, exercised through the real route (not
+  // just unit-tested against moderateText in isolation) — per HM-4's
+  // acceptance criteria.
+  test('messages: missing/empty/non-string message → 400 invalid_message', async () => {
+    // Contract row (docs/api.md): "Message is missing, not a string, or
+    // empty/whitespace-only after trim." — covers all three shapes, not just
+    // the missing/empty ones.
+    for (const message of [undefined, '', '   ', 42, true, null, [], {}]) {
+      const res = await post('/timers/gta-6/message', message === undefined ? {} : { message });
+      assert.equal(res.status, 400, `case: ${JSON.stringify(message)}`);
+      assert.equal((await res.json()).error.code, 'invalid_message', `case: ${JSON.stringify(message)}`);
+    }
+  });
+
+  test('messages: oversized message (>80 chars) → 400 message_too_long', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'abcdefghij'.repeat(9) });
+    assert.equal(res.status, 400);
+    assert.equal((await res.json()).error.code, 'message_too_long');
+  });
+
+  test('messages: repeated-character flood → 400 message_repeated_chars', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'aaaaaaaaaa' });
+    assert.equal(res.status, 400);
+    assert.equal((await res.json()).error.code, 'message_repeated_chars');
+  });
+
+  test('messages: bare link/URL → 400 message_contains_link', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'check this out https://evil.com' });
+    assert.equal(res.status, 400);
+    assert.equal((await res.json()).error.code, 'message_contains_link');
+  });
+
+  test('messages: blocklisted content → 400 message_blocked_content', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'this is shit' });
+    assert.equal(res.status, 400);
+    assert.equal((await res.json()).error.code, 'message_blocked_content');
+  });
+
+  // QA (2026-07-20, independent verification of HM-3b's route-level behavior,
+  // complementing the unit-level checkBareUrl() tests in moderation.test.js):
+  // proves the *documented* trade-off through the real POST route, not just the
+  // isolated link-check function — and separately proves that docs/api.md's own
+  // cited example ("spam.gg") is still rejected end-to-end, just via the
+  // blocklist check ("spam" is a blocklisted word), not the link check. Anyone
+  // reading the trade-off writeup and testing with that exact phrase would
+  // otherwise wrongly conclude the trade-off "doesn't work" when in fact it's
+  // working exactly as designed — the rejection just comes from a different,
+  // independent check.
+  test('messages: HM-3b accepted trade-off — ambiguous dropped TLD (.gg) alone does not trigger message_contains_link', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'check game.gg later' });
+    assert.equal(res.status, 201, 'a message using a deliberately-dropped ambiguous TLD must NOT be blocked by the link check');
+    const body = await res.json();
+    assert.equal(body.message.message, 'check game.gg later');
+  });
+
+  test('messages: the docs\' own "spam.gg" example is still rejected end-to-end — via message_blocked_content (blocklist), not message_contains_link', async () => {
+    const res = await post('/timers/gta-6/message', { message: 'check spam.gg' });
+    assert.equal(res.status, 400);
+    // Important distinction: this must be blocked_content (the word "spam" is
+    // on the blocklist), NOT contains_link — the ambiguous .gg TLD itself is
+    // never caught by the link heuristic, by design (HM-3b).
+    assert.equal((await res.json()).error.code, 'message_blocked_content');
+  });
+
+  test('messages: a rejected message is never stored', async () => {
+    await post('/timers/gta-6/message', { message: 'aaaaaaaaaa' });
+    const list = await (await fetch(base + '/timers/gta-6/messages')).json();
+    assert.deepEqual(list.messages, []);
+  });
+
+  test('messages: HTML in an otherwise-accepted message is sanitized before storage', async () => {
+    const res = await post('/timers/gta-6/message', { message: '<script>alert(1)</script>' });
+    assert.equal(res.status, 201);
+    const body = await res.json();
+    assert.ok(!body.message.message.includes('<script>'));
+    assert.match(body.message.message, /&lt;script&gt;/);
+  });
+
+  test('messages: capped at 50 stored per timer — oldest are pruned, GET never exceeds the cap', async () => {
+    // 55 submissions exceeds the default 20/hour rate limit, so raise it for this test —
+    // it's specifically exercising the storage cap, not the rate limiter.
+    server.close();
+    await start({ messageRateLimit: { limit: 1000 } });
+
+    for (let i = 0; i < 55; i++) {
+      clock.now = new Date(clock.now.getTime() + 1000);
+      const res = await post('/timers/gta-6/message', { message: `msg ${i}` });
+      assert.equal(res.status, 201, `message ${i}`);
+    }
+    const list = await (await fetch(base + '/timers/gta-6/messages')).json();
+    assert.equal(list.messages.length, 50);
+    // newest first: the last one posted (msg 54) must be present, the earliest 5 pruned
+    assert.equal(list.messages[0].message, 'msg 54');
+    assert.ok(!list.messages.some((m) => m.message === 'msg 0'), 'oldest messages must be pruned');
+    assert.ok(!list.messages.some((m) => m.message === 'msg 4'), 'oldest messages must be pruned');
+  });
+
+  test('messages: rate limit 429 + Retry-After, independent of the moderation checks', async () => {
+    server.close();
+    await start({ messageRateLimit: { limit: 3, windowMs: 60 * 60_000 } });
+
+    for (let i = 0; i < 3; i++) {
+      const res = await post('/timers/gta-6/message', { message: `hi ${i}` });
+      assert.equal(res.status, 201, `message ${i} must be within the limit`);
+    }
+    const blocked = await post('/timers/gta-6/message', { message: 'one too many' });
+    assert.equal(blocked.status, 429);
+    const body = await blocked.json();
+    assert.equal(body.error.code, 'rate_limited');
+    assert.ok(Number(blocked.headers.get('retry-after')) > 0);
+
+    // rate limit does not affect GETs
+    assert.equal((await fetch(base + '/timers/gta-6/messages')).status, 200);
+  });
+
+  // QA (2026-07-20, independent verification): the rate limiter middleware runs
+  // BEFORE the moderation/route-level checks (see routes/timers.js:
+  // `router.post('/:slug/message', messageLimiter, ...)`), so a submission that
+  // is ultimately REJECTED by moderation still consumes one slot of the per-IP
+  // quota — not just accepted (201) submissions. Documented here as an explicit,
+  // asserted behavior (not previously covered by a test) rather than an
+  // incidental implementation detail: a caller relying on "only successful
+  // messages count against my quota" would be surprised otherwise. This is a
+  // defensible/common rate-limiting design (it also stops an attacker from
+  // getting unlimited free attempts to probe the moderation filter for a
+  // bypass), but it is not currently spelled out in docs/api.md's `rate_limited`
+  // row — see QA finding HM-6-F1.
+  test('messages: rate limit also counts moderation-REJECTED submissions, not just accepted ones', async () => {
+    server.close();
+    await start({ messageRateLimit: { limit: 3, windowMs: 60 * 60_000 } });
+
+    // 3 submissions that are all rejected by moderation (never stored) should
+    // still exhaust the same 3-per-hour quota as 3 accepted ones would.
+    const rejected1 = await post('/timers/gta-6/message', { message: 'aaaaaaaaaa' });
+    assert.equal(rejected1.status, 400);
+    assert.equal((await rejected1.json()).error.code, 'message_repeated_chars');
+
+    const rejected2 = await post('/timers/gta-6/message', { message: 'this is shit' });
+    assert.equal(rejected2.status, 400);
+
+    const rejected3 = await post('/timers/gta-6/message', { message: '   ' });
+    assert.equal(rejected3.status, 400);
+
+    // A 4th attempt — even a perfectly valid message — now hits the exhausted quota.
+    const fourth = await post('/timers/gta-6/message', { message: 'a perfectly valid message' });
+    assert.equal(fourth.status, 429, 'quota must already be exhausted by the 3 rejected attempts alone');
+    assert.equal((await fourth.json()).error.code, 'rate_limited');
+
+    // Confirm nothing was ever stored (all 3 were rejected, the 4th never ran).
+    const list = await (await fetch(base + '/timers/gta-6/messages')).json();
+    assert.deepEqual(list.messages, []);
   });
 
   // ---------- Rate limit ----------

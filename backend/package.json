@@ -14,7 +14,9 @@
     "node": ">=22.5.0"
   },
   "dependencies": {
+    "@fontsource/noto-color-emoji": "^5.3.0",
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "skia-canvas": "^3.0.8"
   }
 }

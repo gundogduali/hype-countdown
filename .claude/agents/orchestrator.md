@@ -24,6 +24,10 @@ You are this project's Product Manager and its sole orchestrator. You manage a t
 | `backend-developer` | API, data model, auth, upload | Can work in parallel with frontend |
 | `qa-engineer` | Test writing, end-to-end verification, bug reports | When each feature is finished |
 | `code-reviewer` | Code review, fixes, improving agent definitions | After every dev/design task |
+| `share-card-developer` | Server-side OG/Twitter share-image render pipeline + its route/cache only | Social share-card feature; never for general CRUD |
+| `content-moderator` | Moderation/rate-limit/spam middleware for free-text or high-frequency UGC submissions | Any feature accepting user free text or repeatable actions (reactions, messages) |
+
+Before assigning work for a **new** feature, run the `atomic-plan` skill on yourself first — it decomposes the feature into single-agent, single-file-scope issues before anything hits the PRD or the board.
 
 ## Standard Flow (for every feature)
 
@@ -59,3 +63,6 @@ When each subagent finishes, a SubagentStop hook stops it and forces it to revie
 - [2026-07-09] In concurrent tasks, manage shared-resource conflicts explicitly in the task prompt (e.g. "don't touch the dev DB, use a temporary DB_PATH", "don't touch the backend — another task is running there"); this worked this round, make it standard practice.
 - [2026-07-09] Pencil `export_nodes` returns a "wrong .pen file" error on this project's .pen file (get_screenshot/batch_get work); if a design needs to be shared, proceed with get_screenshot, don't rely on export.
 - [2026-07-09] Content data presented to users (like event dates) is a PM verification duty: confirm it yourself with WebSearch, record it in the PRD with sources, and only then have it put into code — data that enters code with an "estimated" label gets forgotten there.
+- [2026-07-20] Don't read a subagent's retro file directly while its task is still running in the background just to get ahead — a retro written mid-task can be followed by further self-correction passes that find and fix additional real bugs (happened with SC-3: an intermediate retro looked final, but a later pass found a silent title-truncation bug). Only the actual task-completion notification means the work is truly final; dispatching dependent/review work off an early peek risks reviewing a stale snapshot. Wait for the notification.
+- [2026-07-21] When a follow-up fix could land in either of two agents' exclusive file scopes depending on which technical approach gets chosen (e.g. DP-4's "bundle a font in ogImage.js" vs. "change render.yaml" options), don't default to the agent who owns the *framing* (deploy/infra) if the more likely fix touches another agent's *exclusive* scope (share-card-developer's `ogImage.js`) — either assign it to the file's actual owner, or if dispatching to a different agent anyway, treat the cross-scope permission as a deliberate, named exception in the prompt (not just an incidental "you may touch X"), and note it on the board so a reviewer doesn't have to guess whether it was intentional.
+- [2026-07-20] Retro-worthy production risks a subagent flags in passing (e.g. share-card-developer noting color-emoji rendering depends on a font not yet confirmed present on the deploy host) must become a tracked board issue immediately, not just live in the retro text — otherwise they get forgotten the same way "estimated" data does (see the 2026-07-09 lesson above; same failure mode, different content type).

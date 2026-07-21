@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { getTimer } from '../api/client'
 import { ButtonGhost, ButtonPrimary } from '../components/Button'
 import Countdown from '../components/Countdown'
 import GlowStreaks from '../components/GlowStreaks'
+import MessageInput from '../components/MessageInput'
+import MessageList from '../components/MessageList'
+import ReactionBar from '../components/ReactionBar'
 import { STREAKS_DETAIL } from '../lib/streaks'
 import Toast from '../components/Toast'
 import useCopyLink from '../hooks/useCopyLink'
@@ -30,6 +33,15 @@ function CopyLinkButton({ copied, onCopy, pulse }) {
   )
 }
 
+function MessagesSection({ slug, messageListRef }) {
+  return (
+    <div className="flex w-full max-w-[660px] flex-col gap-6">
+      <MessageInput slug={slug} onPosted={(message) => messageListRef.current?.prependMessage(message)} />
+      <MessageList ref={messageListRef} slug={slug} />
+    </div>
+  )
+}
+
 function DetailError({ error, onRetry }) {
   return (
     <div className="flex flex-col items-center gap-3 text-center" role="alert">
@@ -52,6 +64,7 @@ export default function TimerDetail() {
   const [retryKey, setRetryKey] = useState(0)
   const now = useNow(status === 'success')
   const { copied, toastVisible, copy } = useCopyLink()
+  const messageListRef = useRef(null)
 
   useEffect(() => {
     let alive = true
@@ -118,6 +131,8 @@ export default function TimerDetail() {
               <CopyLinkButton copied={copied} onCopy={() => copy()} pulse={justCreated} />
               <ButtonPrimary to="/create">Create your own timer</ButtonPrimary>
             </div>
+            <ReactionBar slug={slug} reactions={timer.reactions} />
+            <MessagesSection slug={slug} messageListRef={messageListRef} />
           </>
         ) : (
           <>
@@ -133,6 +148,8 @@ export default function TimerDetail() {
               <Countdown remaining={remaining} size="detail" />
             </div>
             <CopyLinkButton copied={copied} onCopy={() => copy()} pulse={justCreated} />
+            <ReactionBar slug={slug} reactions={timer.reactions} />
+            <MessagesSection slug={slug} messageListRef={messageListRef} />
           </>
         )}
       </div>
